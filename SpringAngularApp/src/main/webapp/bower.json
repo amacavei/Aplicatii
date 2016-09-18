@@ -1,0 +1,15 @@
+{
+  "name": "Animations",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "bootstrap": "^3.2.0",
+    "jquery": "~2.1.4",
+    "less": "~2.5.3"
+  },
+  "devDependencies": {
+    "font-awesome": "fontawesome#~4.5.0"
+  }
+}

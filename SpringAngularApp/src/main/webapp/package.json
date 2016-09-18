@@ -1,0 +1,11 @@
+{
+  "name": "Animations",
+  "private": true,
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "package": "^1.0.1"
+  },
+  "dependencies": {
+    "grunt-browser-sync": "^2.1.3"
+  }
+}
