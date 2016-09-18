@@ -1,0 +1,12 @@
+<h1>Welcome!</h1>
+<div ng-controller="LoginCtrl">
+<form action="/" id="myLogin">
+  Username: <input type="text" id="username" ng-model="me.username"><br>
+  Password: <input type="password" id="password" ng-model="me.password"><br>
+
+  <button type="button" ng-click="me.submit()">Login</button>
+  <button type="button" ng-click="me.cancel()">Cancel</button>
+</form>
+</div>
+
+
