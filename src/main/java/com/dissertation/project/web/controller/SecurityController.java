@@ -8,7 +8,6 @@ import com.dissertation.project.security.SecurityUtils;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.web.context.support.SecurityWebApplicationContextUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,9 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * Created by cmarineata on 9/25/2016.
- */
 @RestController
 @Api(description = "Users management API")
 public class SecurityController {

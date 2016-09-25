@@ -13,9 +13,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-/**
- * Created by cmarineata on 9/25/2016.
- */
 public class SecurityUtils {
 
     private static final ObjectMapper mapper = new ObjectMapper();

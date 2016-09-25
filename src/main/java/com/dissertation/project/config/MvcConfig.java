@@ -15,10 +15,6 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.springframework.web.servlet.resource.ResourceUrlEncodingFilter;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-/**
- * Created by cmarineata on 9/25/2016.
- */
-
 @Configuration
 @Import({SecurityConfig.class})
 @EnableWebMvc

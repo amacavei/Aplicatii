@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by cmarineata on 9/25/2016.
- */
 @RestController
 @Api(description = "users management API")
 

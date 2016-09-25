@@ -1,8 +1,5 @@
 package com.dissertation.project.model;
 
-/**
- * Created by cmarineata on 9/25/2016.
- */
 public class Error {
 
     private String reason;
