@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('Dissertation').
+  .module('Dissertation')
   .service('UsersService', ['$log', '$resource', function ($log, $resource) {
     return {
         getAll: function () {

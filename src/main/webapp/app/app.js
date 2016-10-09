@@ -5,8 +5,7 @@ angular
   .module("Dissertation",[
     'ui.router',
     'ngResource',
-    'http-auth-interceptor',
-    'USER_ROLES'
+    'http-auth-interceptor'
   ])
   .config([
     '$urlRouterProvider',

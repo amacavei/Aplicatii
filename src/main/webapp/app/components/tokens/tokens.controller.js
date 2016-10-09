@@ -6,8 +6,8 @@ angular
     var browsers = ["Firefox","Chrome","Trident"];
 
     $q.all([
-      UserService.getAll().$promise;
-      TokensService.getAll().$promise;
+      UserService.getAll().$promise,
+      TokensService.getAll().$promise
     ]).then(function(data){
       var users = data[0];
       var tokens = data[1];

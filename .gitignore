@@ -1,5 +1,6 @@
 *.iml
 src/main/webapp/bower_components
 src/main/webapp/node_modules
+src/test/webapp/node_modules
 /.idea
 *.log

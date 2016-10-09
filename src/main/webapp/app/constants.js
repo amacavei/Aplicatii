@@ -1,5 +1,6 @@
 angular
-  .constants("USER_ROLES",{
+  .module("Dissertation")
+  .constant('USER_ROLES',{
     all: '*',
     admin: 'admin',
     user: 'user'

@@ -1,0 +1,33 @@
+{
+  "name": "Dissertation-test",
+  "version": "1.0.0",
+  "description": "Dissertation test module",
+  "scripts":{
+    "test": "karma start",
+    "start": "node server.js"
+  },
+  "author": "Costina Marineata",
+  "licence": "ISC",
+  "dependencies":{
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "morgan": "1.7.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies":{
+    "angular": "1.4.12",
+    "angular-mocks": "1.4.12",
+    "angular-ui-router": "^0.3.1",
+    "angular-resource": "1.4.12",
+    "angular-sanitize": "1.4.12",
+    "angular-animate": "1.4.12",
+    "angular-spinkit": "0.3.3",
+    "angular-http-auth": "1.2.2",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-nyan-reporter": "^0.2.4",
+    "karma-spec-reporter": "0.0.26"
+  }
+}
