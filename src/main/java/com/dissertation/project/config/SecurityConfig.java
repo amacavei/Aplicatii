@@ -1,9 +1,9 @@
 package com.dissertation.project.config;
 
 
-import com.dissertation.project.security.RememberMeServices;
+import org.springframework.security.web.authentication.RememberMeServices;
 import com.dissertation.project.security.RestUnauthorizedEntryPoint;
-import com.dissertation.project.security.UserDetailsService;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

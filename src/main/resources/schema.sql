@@ -27,3 +27,8 @@ date timestamp,
 ip_address varchar(50),
 user_agent varchar(200),
 user_login varchar(50));
+
+-- drop table authority;
+-- drop table users;
+-- drop table users_authority;
+-- drop table token;
