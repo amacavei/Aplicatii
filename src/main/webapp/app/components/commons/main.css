@@ -1,0 +1,18 @@
+body{
+  background-color: #DCDCDC;
+}
+.fade{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  opacity: 1;
+}
+
+
+.center-content{
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

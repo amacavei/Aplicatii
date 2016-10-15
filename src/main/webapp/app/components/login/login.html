@@ -1,5 +1,25 @@
-<div class = "container">
-  <div class = "center-block">
-
+<div class = "login center-content">
+  <div class = "container">
+    <div class = "row">
+        <md-icon md-svg-src="components/commons/ic_account_circle_white_48px.svg" aria-label="login"></md-icon>
+    </div>
+    <div class = "row">
+        <form>
+          <md-input-container>
+            <label>Username</label>
+            <input type = "text" />
+          </md-input-container>
+          <md-input-container>
+            <label>Password</label>
+            <input type = "password" />
+          </md-input-container>
+          <md-checkbox ng-model="rememberMe" aria-label="Remember me">
+            Remember me
+          </md-checkbox>
+          <md-button class = "md-raised center-content">
+            Login
+          </md-button>
+        </form>
+    </div>
   </div>
 </div>
