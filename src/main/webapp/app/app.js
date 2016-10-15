@@ -4,6 +4,7 @@
 angular
   .module("Dissertation",[
     'ui.router',
+    'ngMaterial',
     'ngResource',
     'http-auth-interceptor'
   ])
@@ -80,7 +81,7 @@ angular
                   controller:'LogoutController',
                   controllerAs:'vm',
                   access: {
-                    loginRequired: true,
+                    loginRequired: false,
                     authorizedRoles: [USER_ROLES.all]
                   }
                 })
@@ -90,7 +91,7 @@ angular
                   controller: 'LoginController',
                   controllerAs: 'vm',
                   access: {
-                    loginRequired: true,
+                    loginRequired: false,
                     authorizedRoles: [USER_ROLES.all]
                   }
                 })
@@ -98,7 +99,11 @@ angular
                   url:'/error/:code',
                   templateUrl: 'components/error/error.html',
                   controller: 'ErrorController',
-                  controllerAs: 'vm'
+                  controllerAs: 'vm',
+                  access: {
+                    loginRequired: false,
+                    authorizedRoles: [USER_ROLES.all]
+                  }
                 })
   }])
   .run([

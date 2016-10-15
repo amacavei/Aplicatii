@@ -9,6 +9,8 @@
     "angular-sanitize": "1.4.12",
     "angular-animate": "1.4.12",
     "angular-spinkit": "0.3.3",
-    "angular-http-auth": "1.2.2"
+    "angular-http-auth": "1.2.2",
+    "bootstrap": "3.3.7",
+    "angular-material": "1.1.0"
   }
 }
