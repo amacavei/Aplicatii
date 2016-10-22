@@ -6,7 +6,9 @@ angular
     'ui.router',
     'ngMaterial',
     'ngResource',
-    'http-auth-interceptor'
+    'http-auth-interceptor',
+    'ngAnimate',
+    'angular-spinkit'
   ])
   .config([
     '$urlRouterProvider',
@@ -71,7 +73,7 @@ angular
                   url:'/loading',
                   templateUrl:'components/loading/loading.html',
                   access: {
-                    loginRequired: true,
+                    loginRequired: false,
                     authorizedRoles: [USER_ROLES.all]
                   }
                 })
