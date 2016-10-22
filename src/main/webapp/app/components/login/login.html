@@ -7,17 +7,17 @@
         <form>
           <md-input-container>
             <label>Username</label>
-            <input type = "text" />
+            <input type = "text" ng-model = "username"/>
           </md-input-container>
           <md-input-container>
             <label>Password</label>
-            <input type = "password" />
+            <input type = "password" ng-model = "password"/>
           </md-input-container>
           <md-checkbox ng-model="rememberMe" aria-label="Remember me">
             Remember me
           </md-checkbox>
           <div class = "row">
-            <md-button class = "md-raised center-content">
+            <md-button class = "md-raised center-content" ng-click = "login()">
               Login
             </md-button>
           </div>

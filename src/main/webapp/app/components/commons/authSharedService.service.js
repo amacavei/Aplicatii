@@ -2,14 +2,14 @@
 
 angular
   .module("Dissertation")
-  .service('AuthSharedService',['$rootScope','$http','$resource','authService','Session', function ($rootScope, $http, $resource, authService, Session) {
+  .service('AuthSharedService',['$rootScope','$http','$resource','authService','Session','urlConstants', function ($rootScope, $http, $resource, authService, Session, urlConstants) {
     return {
         login: function (userName, password, rememberMe) {
             var config = {
                 ignoreAuthModule: 'ignoreAuthModule',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             };
-            $http.post('authenticate', $.param({
+            $http.post(urlConstants.AUTHENTICATE, $.param({
                 username: userName,
                 password: password,
                 rememberme: rememberMe

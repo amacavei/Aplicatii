@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="components/login/login.css">
 
   <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/angular-spinkit/build/angular-spinkit.min.js"></script>
   <script src="../bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
   <script src="../bower_components/angular-resource/angular-resource.min.js"></script>
@@ -19,11 +20,13 @@
   <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
   <script src="../bower_components/angular-messages/angular-messages.min.js"></script>
   <script src="../bower_components/angular-material/angular-material.min.js"></script>
-  <div ng-if="authenticated" ng-include="'navbar/navbar.html'"></div>
   <!-- endinject-->
   <title></title>
 </head>
 <body>
+
+  <div ng-if="authenticated" ng-include="'navbar/navbar.html'"></div>
+
   <div class="container">
       <div ui-view class="fade"></div>
   </div>
@@ -31,6 +34,7 @@
   <!-- inject:js -->
   <script src="app.js"></script>
   <script src="constants.js"></script>
+  <script src="components/commons/urlConstants.js"></script>
   <script src="components/apiDoc/apiDoc.controller.js"></script>
   <script src="components/login/login.controller.js"></script>
   <script src="components/error/error.controller.js"></script>
