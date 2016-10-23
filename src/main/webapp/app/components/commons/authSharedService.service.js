@@ -24,7 +24,7 @@ angular
         },
         getAccount: function () {
             $rootScope.loadingAccount = true;
-            $http.get('security/account')
+            $http.get(urlConstants.ACCOUNT)
                 .then(function (response) {
                     authService.loginConfirmed(response.data);
                 });
