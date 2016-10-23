@@ -2,10 +2,10 @@
 
 angular
   .module("Dissertation")
-  .service('Home', ['$log','$resource', function ($log, $resource) {
+  .service('HomeService', ['$log','$resource', function ($log, $resource) {
     return{
       getTechno: function(){
-        var userResource = $resource('resources/json/techno.json', {}, {
+        var userResource = $resource('components/commons/json/technos.json', {}, {
           query: {method:'GET', params:{}, isArray: true}
         });
         return userResource.query();

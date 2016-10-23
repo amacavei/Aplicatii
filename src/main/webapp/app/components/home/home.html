@@ -1,0 +1,38 @@
+<div class = "home shadows center-content">
+  <div class="container">
+    <div class="row">
+      <div class="md-display-2">
+        Welcome
+      </div>
+    </div>
+    <div class="row">
+      <div class="description">
+        <div class="md-title">
+          This is a demo project for securing an Angularjs project with Spring-security.
+        </div>
+        <div class="md-title">
+          This demo uses the open source frameworks and projects below:
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <md-card class = "col-md-5" ng-repeat = "item in technos">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{item.name}}</span>
+            <span class="md-subhead">{{item.description}}</span>
+            <span class="md-subhead">
+              <a ng-href="http://www.{{item.website}}">
+                {{item.website}}
+              </a>
+            </span>
+          </md-card-title-text>
+          <md-card-title-media>
+              <img src="components/commons/images/{{item.logo}}" class="md-card-image" alt="image caption">
+          </md-card-title-media>
+        </md-card-title>
+      </md-card>
+    </div>
+    </div>
+  </div>
+</div>

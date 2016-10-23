@@ -1,0 +1,31 @@
+<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+  <a class="brand">LOGO</a>
+  <md-nav-item md-nav-click="goto('page1')" name="page1">
+    <md-icon md-svg-src="components/commons/images/ic_home_white_48px.svg" aria-label="login">
+    </md-icon>
+  </md-nav-item>
+  <md-nav-item md-nav-click="goto('page2')" name="page2">Users</md-nav-item>
+  <md-nav-item md-nav-click="goto('page3')" name="page3">API Doc</md-nav-item>
+  <md-nav-item md-nav-click="goto('page4')" name="page4">Sessions</md-nav-item>
+  <md-menu>
+    <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+      Steve JOBS
+      <md-icon md-svg-src="components/commons/images/ic_keyboard_arrow_down_white_48px.svg"></md-icon>
+    </md-button>
+    <md-menu-content width="4">
+      <md-menu-item>
+        <md-button ng-click="doSomething()">
+          Something else here
+        </md-button>
+      </md-menu-item>
+      <md-menu-divider role="separator"></md-menu-divider>
+      <md-menu-item>
+        <md-button ng-click="doSomething()">
+          <md-icon md-svg-src="components/commons/images/ic_exit_to_app_black_48px.svg">
+          </md-icon>
+          Logout
+        </md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+</md-nav-bar>

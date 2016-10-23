@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="../bower_components/angular-spinkit/build/angular-spinkit.min.css">
   <link rel="stylesheet" href="components/commons/main.css">
   <link rel="stylesheet" href="components/login/login.css">
+  <link rel="stylesheet" href="components/home/home.css">
+  <link rel="stylesheet" href="components/navbar/navbar.css">
 
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -25,10 +27,12 @@
 </head>
 <body>
 
-  <div ng-if="authenticated" ng-include="'navbar/navbar.html'"></div>
+  <div ng-if="authenticated" ng-include="'components/navbar/navbar.html'"></div>
 
   <div class="container">
+    <div style="position: relative">
       <div ui-view class="fade"></div>
+    </div>
   </div>
 
   <!-- inject:js -->

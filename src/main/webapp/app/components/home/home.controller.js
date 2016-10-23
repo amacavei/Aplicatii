@@ -2,6 +2,6 @@
 
 angular
   .module("Dissertation")
-  .controller("HomeController",['$scope','HomeService', function($scope, HomeService){
+  .controller("HomeController",['$scope','HomeService','$location', function($scope, HomeService, $location){
     $scope.technos = HomeService.getTechno();
   }]);
