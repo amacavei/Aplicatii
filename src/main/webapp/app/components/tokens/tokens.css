@@ -1,0 +1,13 @@
+.tokens{
+  background-color: white;
+  border-radius: 4px;
+  overflow: auto;
+  margin-bottom: 30px;
+  position: absolute;
+  top: 0;
+}
+
+.tokens.center-content{
+  top: 0px;
+  transform: translateX(-50%) translateY(-0%);
+}

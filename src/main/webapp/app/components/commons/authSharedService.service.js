@@ -50,7 +50,7 @@ angular
             $rootScope.authenticationError = false;
             $rootScope.authenticated = false;
             $rootScope.account = null;
-            $http.get('logout');
+            $http.get(urlConstants.LOGOUT);
             Session.invalidate();
             authService.loginCancelled();
         }

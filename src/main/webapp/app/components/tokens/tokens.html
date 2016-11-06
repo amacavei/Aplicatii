@@ -1,0 +1,29 @@
+<div class = "tokens shadows center-content">
+  <div class="container">
+    <div class="row">
+      <div class="md-title">
+        Authenticated Users
+      </div>
+    </div>
+    <div class="row">
+      <md-input-container>
+        <label>Search</label>
+        <md-icon md-svg-src="components/commons/images/ic_find_in_page_black_48px.svg" aria-label="find"></md-icon>
+        <input type = "text" ng-model = "search"/>
+      </md-input-container>
+    </div>
+    <div class = "row">
+      <md-card class = "col-md-5" ng-repeat = "token in tokens | filter:search">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{token.date|date:'medium'}}</span>
+            <span class="md-subhead">{{token.ipAddress}}</span>
+          </md-card-title-text>
+          <!-- <md-card-title-media>
+              <img src="components/commons/images/{{item.logo}}" class="md-card-image" alt="image caption">
+          </md-card-title-media> -->
+        </md-card-title>
+      </md-card>
+    </div>
+  </div>
+</div>

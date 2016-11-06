@@ -2,9 +2,9 @@
 
 angular
   .module("Dissertation")
-  .controller("ErrorController",['$scope','$routeParams',function($scope, $routeParams){
+  .controller("ErrorController",['$scope','$stateParams',function($scope, $stateParams){
 
-    $scope.code = $routeParams.code;
+    $scope.code = $stateParams.code;
 
     switch($scope.code){
       case "403":
