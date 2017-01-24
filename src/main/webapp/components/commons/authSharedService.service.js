@@ -7,7 +7,9 @@ angular
         login: function (userName, password, rememberMe) {
             var config = {
                 ignoreAuthModule: 'ignoreAuthModule',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
             };
             $http.post(urlConstants.AUTHENTICATE, $.param({
                 username: userName,

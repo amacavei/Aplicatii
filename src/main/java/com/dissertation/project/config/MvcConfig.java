@@ -29,8 +29,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
-        registry.addResourceHandler("/resources/vendor/**")
-                .addResourceLocations("/resources/vendor/")
+        registry.addResourceHandler("vendor/**")
+                .addResourceLocations("vendor/")
                 .setCachePeriod(0)
                 .resourceChain(true)
                 .addResolver(new GzipResourceResolver())

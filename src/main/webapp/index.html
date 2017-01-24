@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="Dissertation">
+<head lang="en">
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/png" href="resources/img/favicon.jpeg"/>
+  <!-- inject:css-->
+  <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/css/angular-material.min.css">
+  <link rel="stylesheet" href="vendor/css/angular-spinkit.min.css">
+  <link rel="stylesheet" href="components/commons/main.css">
+  <link rel="stylesheet" href="components/error/error.css">
+  <link rel="stylesheet" href="components/home/home.css">
+  <link rel="stylesheet" href="components/login/login.css">
+  <link rel="stylesheet" href="components/navbar/navbar.css">
+  <link rel="stylesheet" href="components/tokens/tokens.css">
+  <!-- endinject-->
+  <title></title>
+</head>
+<body>
+
+  <div ng-if="authenticated" ng-include="'components/navbar/navbar.html'"></div>
+
+  <div class="container">
+    <div style="position: relative">
+      <div ui-view class="fade"></div>
+    </div>
+  </div>
+
+  <!-- inject:js -->
+  <script src="vendor/js/lib.min.js"></script>
+  <script src="app.js"></script>
+  <script src="components/apiDoc/apiDoc.controller.js"></script>
+  <script src="components/commons/access.directive.js"></script>
+  <script src="components/commons/authSharedService.service.js"></script>
+  <script src="components/commons/logout.controller.js"></script>
+  <script src="components/commons/session.service.js"></script>
+  <script src="components/commons/urlConstants.js"></script>
+  <script src="components/error/error.controller.js"></script>
+  <script src="components/home/home.controller.js"></script>
+  <script src="components/home/home.service.js"></script>
+  <script src="components/login/login.controller.js"></script>
+  <script src="components/tokens/tokens.controller.js"></script>
+  <script src="components/tokens/tokens.service.js"></script>
+  <script src="components/users/users.controller.js"></script>
+  <script src="components/users/users.service.js"></script>
+  <script src="constants.js"></script>
+  <!-- endinject-->
+</body>
+</html>

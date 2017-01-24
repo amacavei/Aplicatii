@@ -153,7 +153,7 @@ angular
     // Call when the 401 response is returned by the server
     $rootScope.$on('event:auth-loginRequired', function (event, data) {
         if ($rootScope.loadingAccount && data.status !== 401) {
-            $rootScope.requestedUrl = $location.path()
+            $rootScope.requestedUrl = $location.path();
             $location.path('/loading');
         } else {
             Session.invalidate();

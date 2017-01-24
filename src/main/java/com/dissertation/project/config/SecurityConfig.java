@@ -60,8 +60,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/index.html", "/login.html",
-                "/partials/**", "/template/**", "/", "/error/**");
+        web.ignoring().antMatchers( "/index.html","/constants.js", "/app.js", "/login.html",
+                "/components/**", "/vendor/**", "/", "/error/**");
     }
 
     @Override
