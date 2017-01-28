@@ -1,0 +1,31 @@
+<div class = "createUser shadows center-content">
+    <div class="container">
+        <div class="row">
+            <div class="md-display-2">
+                Create User
+            </div>
+        </div>
+        <div class="row">
+            <div class="description">
+                <div class="md-title">
+                    To create a user please fill in the details below.
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <form>
+                <md-input-container>
+                    <label style = "width: 100px">Username</label><div class="arrow"></div>
+                    <input type = "text" ng-model = "username"/>
+                </md-input-container>
+                <md-input-container>
+                    <label style = "width: 100px">Password</label><div class="arrow"></div>
+                    <input type = "password" ng-model = "password"/>
+                </md-input-container>
+                <md-button class = "md-raised center-content" ng-click = "createUserController.createUser()">
+                    Create
+                </md-button>
+            </form>
+        </div>
+    </div>
+</div>

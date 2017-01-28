@@ -49,20 +49,10 @@ angular
                     authorizedRoles: [USER_ROLES.admin]
                   }
                 })
-                .state('apiDoc',{
-                  url:'/apiDoc',
-                  templateUrl:'components/apiDoc/apiDoc.html',
-                  controller:'ApiDocController',
-                  controllerAs:'vm',
-                  access: {
-                    loginRequired: true,
-                    authorizedRoles: [USER_ROLES.all]
-                  }
-                })
-                .state('tokens',{
-                  url:'/tokens',
-                  templateUrl:'components/tokens/tokens.html',
-                  controller:'TokensController',
+                .state('createUser',{
+                  url:'/create',
+                  templateUrl:'components/createUser/createUser.html',
+                  controller:'createUserController',
                   controllerAs:'vm',
                   access: {
                     loginRequired: true,

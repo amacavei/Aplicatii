@@ -1,0 +1,53 @@
+.createUser{
+    background-color: white;
+    border-radius: 4px;
+    overflow: auto;
+    margin-bottom: 30px;
+    position: absolute;
+    top: 0;
+}
+
+.createUser.center-content{
+    top: 0px;
+    transform: translateX(-50%) translateY(-0%);
+}
+
+.createUser .container .row:last-child {
+    padding-bottom: 30px;
+}
+
+.createUser md-input-container input {
+    position: relative;
+    margin-left: 100px;
+    width: 200px;
+    height: 27px;
+    padding: 2px 25px 1px;
+}
+
+.createUser form md-input-container label {
+    position: absolute;
+    top: 0.5px;
+    color: white;
+    left: 30px;
+    background-color: #F08080;
+    width: 100px;
+    height: 30px;
+    border-radius: 16px 0 0 16px;
+}
+
+.createUser form md-input-container .arrow {
+    width: 0px;
+    position: absolute;
+    left: 105px;
+    top: 6.5px;
+    height: 0px;
+    border-top: 11.2px solid transparent;
+    z-index: 100;
+    border-left: 15px solid #F08080;
+    border-bottom: 11.2px solid transparent;
+}
+
+/*md-input-container.md-input-focused .arrow:not(.md-no-float), md-input-container.md-input-has-placeholder .arrow:not(.md-no-float), md-input-container.md-input-has-value .arrow:not(.md-no-float){*/
+    /*transform: translate3d(0,6px,0) scale(.75);*/
+    /*transition: transform .4s cubic-bezier(.25,.8,.25,1),width .4s cubic-bezier(.25,.8,.25,1),-webkit-transform .4s cubic-bezier(.25,.8,.25,1);*/
+/*}*/

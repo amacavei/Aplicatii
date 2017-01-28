@@ -16,7 +16,7 @@ var debug = require('gulp-debug');
 var uncss = require('gulp-uncss');
 
 var vendorJs;
-var vendorCss1, vendorCss2, vendorCss3;
+var vendorCss1, vendorCss2, vendorCss3, vendorCss4;
 
 
 options = {
@@ -68,7 +68,6 @@ gulp.task('lib-js-files', function () {
         .pipe(gulp.dest('src/main/webapp/vendor/js'));
 });
 
-
 gulp.task('boot-css-files', function () {
     vendorCss1 = gulp.src('bower_components/bootstrap/dist/css/bootstrap.min.css')
 
@@ -92,15 +91,22 @@ gulp.task('spinkit-css-files', function () {
         .pipe(gulp.dest('src/main/webapp/vendor/css'));
 });
 
+gulp.task('font-css-files', function () {
+    vendorCss4 = gulp.src('src/main/webapp/font-awesome-4.7.0/css/font-awesome.min.css')
+
+        .pipe(debug({title: 'font-css-files :'}))
+        .pipe(gulp.dest('src/main/webapp/vendor/css'));
+});
+
 
 gulp.task('index', function () {
     var target = gulp.src("src/main/webapp/index.html");
     var jsSources = gulp.src(['src/main/webapp//**/*.js'], {read: false})
         .pipe(order(["**/security.js", "**/app.js"]));
-    var cssSources = gulp.src(['src/main/webapp//**/*.css'], {read: false});
+    var cssSources = gulp.src(['src/main/webapp/components//**/*.css'], {read: false});
 
 
-    return target.pipe(inject(series(vendorJs, vendorCss1, vendorCss2, vendorCss3, jsSources, cssSources), {relative: true}))
+    return target.pipe(inject(series(vendorJs, vendorCss1, vendorCss2, vendorCss3, vendorCss4, jsSources, cssSources), {relative: true}))
         .pipe(gulp.dest('src/main/webapp'));
 });
 
@@ -111,8 +117,14 @@ gulp.task('copyFonts', function () {
         .pipe(gulp.dest('src/main/webapp/vendor/fonts'));
 });
 
+gulp.task('copyFontAwesome', function () {
+    gulp.src('src/main/webapp/font-awesome-4.7.0/fonts/*.{ttf,woff,woff2,eof,svg}')
+        .pipe(flatten())
+        .pipe(gulp.dest('src/main/webapp/vendor/fonts'));
+});
+
 
 // Default Task
 gulp.task('default', function () {
-    runSequence('clean', 'lib-js-files', 'boot-css-files', 'spinkit-css-files','material-css-files','copyFonts', "index");
+    runSequence('clean', 'lib-js-files', 'font-css-files', 'boot-css-files', 'spinkit-css-files','material-css-files','copyFonts','copyFontAwesome', "index");
 });
