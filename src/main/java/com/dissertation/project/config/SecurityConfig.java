@@ -1,6 +1,8 @@
 package com.dissertation.project.config;
 
-
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.RememberMeServices;
 import com.dissertation.project.security.RestUnauthorizedEntryPoint;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -55,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -97,5 +99,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMeServices(rememberMeServices)
                 .key(REMEMBER_ME_KEY)
                 .and();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder;
     }
 }

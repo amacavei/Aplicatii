@@ -1,7 +1,7 @@
 package com.dissertation.project.security;
 
-import com.dissertation.project.persist.entity.User;
-import com.dissertation.project.persist.repo.UserRepo;
+import com.dissertation.project.jdbc.usersDBMapping.UserDao;
+import com.dissertation.project.jdbc.usersDBMapping.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -19,13 +19,13 @@ import java.io.IOException;
 public class RestAuthenticationSuccessHandler  extends SimpleUrlAuthenticationSuccessHandler {
 
     @Autowired
-    private UserRepo userService;
+    private UserDao userService;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication)
             throws ServletException, IOException {
-        User user = userService.findByLogin(authentication.getName());
+        Users user = userService.findByLogin(authentication.getName());
         SecurityUtils.sendResponse(response, HttpServletResponse.SC_OK, user);
     }
 }

@@ -1,9 +1,9 @@
 package com.dissertation.project.web.controller;
 
-import com.dissertation.project.persist.entity.Token;
-import com.dissertation.project.persist.entity.User;
-import com.dissertation.project.persist.repo.TokenRepo;
-import com.dissertation.project.persist.repo.UserRepo;
+import com.dissertation.project.jdbc.tokenDBMapping.TokenDao;
+import com.dissertation.project.jdbc.tokenDBMapping.Tokens;
+import com.dissertation.project.jdbc.usersDBMapping.UserDao;
+import com.dissertation.project.jdbc.usersDBMapping.Users;
 import com.dissertation.project.security.SecurityUtils;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,25 +20,25 @@ import java.util.List;
 public class SecurityController {
 
     @Autowired
-    private UserRepo userRepo;
+    private UserDao userDao;
 
     @Autowired
-    private TokenRepo tokenRepo;
+    private TokenDao tokenDao;
 
     @RequestMapping(value = "/security/account", method = RequestMethod.GET)
     public @ResponseBody
-    User getUserAccount(){
-        User user = userRepo.findByLogin(SecurityUtils.getCurrentLogin());
-        user.setPassword(null);
-        return user;
+    Users getUserAccount(){
+        Users users = userDao.findByLogin(SecurityUtils.getCurrentLogin());
+        users.setPassword(null);
+        return users;
     }
 
     @PreAuthorize("hasAuthority('admin')")
     @RequestMapping(value = "/security/tokens", method = RequestMethod.GET)
     public @ResponseBody
-    List<Token> getTokens(){
-        List<Token> tokens = tokenRepo.findAll();
-        for(Token t:tokens){
+    List<Tokens> getTokens(){
+        List<Tokens> tokens = tokenDao.findAll();
+        for(Tokens t:tokens){
             t.setSeries(null);
             t.setValue(null);
         }

@@ -1,9 +1,9 @@
 package com.dissertation.project.security;
 
-import com.dissertation.project.persist.entity.Token;
-import com.dissertation.project.persist.entity.User;
-import com.dissertation.project.persist.repo.TokenRepo;
-import com.dissertation.project.persist.repo.UserRepo;
+import com.dissertation.project.jdbc.tokenDBMapping.TokenDao;
+import com.dissertation.project.jdbc.tokenDBMapping.Tokens;
+import com.dissertation.project.jdbc.usersDBMapping.UserDao;
+import com.dissertation.project.jdbc.usersDBMapping.Users;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,10 +56,10 @@ public class RememberMeServices extends AbstractRememberMeServices {
     private SecureRandom random;
 
     @Autowired
-    private TokenRepo tokenRepo;
+    private TokenDao tokenRepo;
 
     @Autowired
-    private UserRepo userRepo;
+    private UserDao userRepo;
 
     @Autowired
     public RememberMeServices(Environment env, UserDetailsService userDetailsService) {
@@ -71,7 +71,7 @@ public class RememberMeServices extends AbstractRememberMeServices {
     @Override
     @Transactional
     protected UserDetails processAutoLoginCookie(String[] cookieTokens, HttpServletRequest request, HttpServletResponse response) {
-        Token token = getPersistentToken(cookieTokens);
+        Tokens token = getPersistentToken(cookieTokens);
         String login = token.getUserLogin();
 
         //Token matches => login is valid. Update the token value and keep the same series number
@@ -95,8 +95,8 @@ public class RememberMeServices extends AbstractRememberMeServices {
         String login = successfulAuthentication.getName();
 
         log.debug("Creating new persistent login for user {}", login);
-        User user = userRepo.findByLogin(login);
-        Token token = new Token();
+        Users user = userRepo.findByLogin(login);
+        Tokens token = new Tokens();
         token.setSeries(generateSeriesData());
         token.setUserLogin(user.getLogin());
         token.setValue(generateTokenData());
@@ -125,7 +125,7 @@ public class RememberMeServices extends AbstractRememberMeServices {
         if (rememberMeCookie != null && rememberMeCookie.length() != 0) {
             try {
                 String[] cookieTokens = decodeCookie(rememberMeCookie);
-                Token token = getPersistentToken(cookieTokens);
+                Tokens token = getPersistentToken(cookieTokens);
                 tokenRepo.delete(token.getSeries());
             } catch (InvalidCookieException ice) {
                 log.info("Invalid cookie, no persistent token could be deleted");
@@ -139,7 +139,7 @@ public class RememberMeServices extends AbstractRememberMeServices {
     /**
      * Validate the token and return it.
      */
-    private Token getPersistentToken(String[] cookieTokens) {
+    private Tokens getPersistentToken(String[] cookieTokens) {
         if (cookieTokens.length != 2) {
             throw new InvalidCookieException("Cookie token did not contain " + 2 +
                     " tokens, but contained '" + Arrays.asList(cookieTokens) + "'");
@@ -147,7 +147,7 @@ public class RememberMeServices extends AbstractRememberMeServices {
         final String presentedSeries = cookieTokens[0];
         final String presentedToken = cookieTokens[1];
 
-        Token token = null;
+        Tokens token = null;
         try {
             token = tokenRepo.findOne(presentedSeries);
         } catch (DataAccessException e) {
@@ -186,7 +186,7 @@ public class RememberMeServices extends AbstractRememberMeServices {
         return new String(Base64.encode(newToken));
     }
 
-    private void addCookie(Token token, HttpServletRequest request, HttpServletResponse response) {
+    private void addCookie(Tokens token, HttpServletRequest request, HttpServletResponse response) {
         setCookie(
                 new String[]{token.getSeries(), token.getValue()},
                 TOKEN_VALIDITY_SECONDS, request, response);

@@ -1,7 +1,7 @@
 package com.dissertation.project.web.controller;
 
-import com.dissertation.project.persist.entity.User;
-import com.dissertation.project.persist.repo.UserRepo;
+import com.dissertation.project.jdbc.usersDBMapping.UserDao;
+import com.dissertation.project.jdbc.usersDBMapping.Users;
 import io.swagger.annotations.Api;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,25 +17,25 @@ public class UserController {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
-    private UserRepo userRepo;
+    private UserDao userDao;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public @ResponseBody
-    List<User> userList(){
+    List<Users> userList(){
         logger.debug("get users list");
-        return userRepo.findAll();
+        return userDao.findAll();
     }
 
     @RequestMapping(value = "/users/{userId}", method = RequestMethod.GET)
-    public @ResponseBody User getUser(@PathVariable Long userId){
+    public @ResponseBody Users getUser(@PathVariable Long userId){
         logger.debug("get user");
-        return userRepo.findOne(userId);
+        return userDao.findOne(userId);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public @ResponseBody User saveUser(@RequestBody User user){
+    public @ResponseBody Users saveUser(@RequestBody Users user){
         logger.debug("save user");
-        userRepo.save(user);
+        userDao.save(user);
         return user;
     }
 }

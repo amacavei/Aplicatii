@@ -11,12 +11,12 @@ insert into users (first_name, family_name, login, password, e_mail, phone, lang
 insert into users (first_name, family_name, login, password, e_mail, phone, language, enabled) values ('Jack', 'DORSEY', 'jack', 'dorsey', 'jack.dorsey@twitter.com', '0033 1 23 45 67 89', 'en', true);
 insert into users (first_name, family_name, login, password, e_mail, phone, language, enabled) values ('Matt', 'MULLENWEG', 'matt', 'mullenweg', 'matt.mullenweg@wordpress.com', '0033 1 23 45 67 89', 'en', true);
 
-insert into authority (name) values ('admin');
-insert into authority (name) values ('technical user');
-insert into authority (name) values ('user');
+insert into roles (name) values ('admin');
+insert into roles (name) values ('technical user');
+insert into roles (name) values ('user');
 
-insert into users_authority (id_user, id_authority) values (1, 1);
-insert into users_authority (id_user, id_authority) values (1, 2);
-insert into users_authority (id_user, id_authority) values (1, 3);
-insert into users_authority (id_user, id_authority) values (2, 3);
-insert into users_authority (id_user, id_authority) values (3, 3);
+insert into users_roles (id_user, id_role) values (1, 1);
+insert into users_roles (id_user, id_role) values (1, 2);
+insert into users_roles (id_user, id_role) values (1, 3);
+insert into users_roles (id_user, id_role) values (2, 3);
+insert into users_roles (id_user, id_role) values (3, 3);
