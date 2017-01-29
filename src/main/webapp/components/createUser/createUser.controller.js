@@ -2,11 +2,19 @@
  * Created by Andrei on 1/28/2017.
  */
 angular.module('Dissertation')
-    .controller('createUserController', ['$scope', function($scope) {
-        $scope.login = '';
-        $scope.password = '';
-        $scope.phoneNumber = '';
-        $scope.email = '';
-        $scope.firstName = '';
-        $scope.familyName = '';
+    .controller('createUserController', ['$scope', 'createUserService', function($scope,createUserService) {
+            var vm = this;
+
+            vm.createUser = function() {
+                var user = {
+                    login      : vm.login,
+                    password   : vm.password,
+                    phone      : vm.phoneNumber,
+                    email      : vm.email,
+                    firstName  : vm.firstName,
+                    familyName : vm.familyName
+                };
+
+                createUserService.createUser(user);
+            };
     }]);
