@@ -13,15 +13,21 @@
 }
 
 .createUser .container .row:last-child {
-    padding-bottom: 30px;
+    padding-bottom: 60px;
+}
+
+.createUser md-input-container {
+    padding: 2px;
+    margin: 18px 0 8px 30px;
 }
 
 .createUser md-input-container input {
     position: relative;
     margin-left: 100px;
-    width: 200px;
-    height: 27px;
-    padding: 2px 25px 1px;
+    height: 20px;
+    top: 6px;
+    width: 300px;
+    padding: 2px 60px 1px;
 }
 
 .createUser form md-input-container label {
@@ -38,7 +44,7 @@
 .createUser form md-input-container .arrow {
     width: 0px;
     position: absolute;
-    left: 105px;
+    left: 142px;
     top: 6.5px;
     height: 0px;
     border-top: 11.2px solid transparent;
@@ -47,7 +53,61 @@
     border-bottom: 11.2px solid transparent;
 }
 
-/*md-input-container.md-input-focused .arrow:not(.md-no-float), md-input-container.md-input-has-placeholder .arrow:not(.md-no-float), md-input-container.md-input-has-value .arrow:not(.md-no-float){*/
-    /*transform: translate3d(0,6px,0) scale(.75);*/
-    /*transition: transform .4s cubic-bezier(.25,.8,.25,1),width .4s cubic-bezier(.25,.8,.25,1),-webkit-transform .4s cubic-bezier(.25,.8,.25,1);*/
-/*}*/
+.createUser md-input-container.md-input-focused .md-input{
+    border-color: #F08080;
+    -webkit-transition: border-color ease-in-out .5s;
+}
+
+.createUser md-input-container.md-input-focused label{
+    color: white;
+}
+
+.createUser md-input-container .md-placeholder, md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+    -webkit-transform: translate3d(0,6px,0) scale(.75);
+    transform: translate3d(0,6px,0) scale(.75);
+    -webkit-transition: none;
+    transition: none;
+    max-width: 100%;
+}
+
+.createUser button.md-button{
+    display: block;
+    background-color: #F08080;
+    color: white;
+    position: relative;
+    width: 375px;
+    top: 30px;
+    left: 240px;
+}
+
+.createUser button.md-button.md-raised:hover{
+    background-color: #90EE90;
+}
+
+@media (min-width: 1200px) {
+    .createUser .container {
+        width: 550px;
+    }
+}
+
+@media (min-width: 920px) {
+    .createUser .container {
+        width: 550px;
+    }
+}
+
+@media (min-width: 768px) {
+    .createUser .container {
+        width: 550px;
+    }
+}
+
+@media (max-width: 768px) {
+    .createUser form md-input-container .arrow {
+        left: 112px;
+    }
+
+    .createUser form md-input-container label {
+        left: 0;
+    }
+}

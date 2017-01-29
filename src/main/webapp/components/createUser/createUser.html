@@ -13,17 +13,33 @@
             </div>
         </div>
         <div class = "row">
-            <form>
+            <form autocomplete="false">
                 <md-input-container>
-                    <label style = "width: 100px">Username</label><div class="arrow"></div>
-                    <input type = "text" ng-model = "username"/>
+                    <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">First Name</label><div class="arrow"></div>
+                    <input autocomplete="new-firstName" type = "text" ng-model = "firstName"/>
                 </md-input-container>
                 <md-input-container>
-                    <label style = "width: 100px">Password</label><div class="arrow"></div>
-                    <input type = "password" ng-model = "password"/>
+                    <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">Last Name</label><div class="arrow"></div>
+                    <input autocomplete="new-lastName" type = "text" ng-model = "familyName"/>
+                </md-input-container>
+                <md-input-container>
+                    <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">Email</label><div class="arrow"></div>
+                    <input autocomplete="new-email" type = "email" ng-model = "email"/>
+                </md-input-container>
+                <md-input-container>
+                    <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">Phone Number</label><div class="arrow"></div>
+                    <input autocomplete="new-phoneNumber" type = "text" ng-model = "phoneNumber"/>
+                </md-input-container>
+                <md-input-container>
+                    <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">Username</label><div class="arrow"></div>
+                    <input autocomplete="new-text" type = "text" ng-model = "username" value=""/>
+                </md-input-container>
+                <md-input-container>
+                    <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">Password</label><div class="arrow"></div>
+                    <input autocomplete="new-password" type = "password" ng-model = "password"/>
                 </md-input-container>
                 <md-button class = "md-raised center-content" ng-click = "createUserController.createUser()">
-                    Create
+                    Create User
                 </md-button>
             </form>
         </div>
