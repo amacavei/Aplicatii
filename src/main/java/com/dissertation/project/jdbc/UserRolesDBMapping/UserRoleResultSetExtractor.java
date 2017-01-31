@@ -1,6 +1,5 @@
 package com.dissertation.project.jdbc.UserRolesDBMapping;
 
-import com.dissertation.project.jdbc.rolesDBMapping.Roles;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import java.sql.ResultSet;

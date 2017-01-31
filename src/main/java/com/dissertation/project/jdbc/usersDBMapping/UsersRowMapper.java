@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class UserRowMapper implements RowMapper {
+public class UsersRowMapper implements RowMapper {
 
     public Object mapRow(ResultSet rs, int line) throws SQLException {
-        UserResultSetExtractor extractor = new UserResultSetExtractor();
+        UsersResultSetExtractor extractor = new UsersResultSetExtractor();
         return extractor.extractData(rs);
     }
 

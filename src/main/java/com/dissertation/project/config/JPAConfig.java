@@ -19,8 +19,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.dissertation.project.persist")
-@EnableJpaRepositories("com.dissertation.project.persist")
+@ComponentScan("com.dissertation.project.jdbc")
+@EnableJpaRepositories("com.dissertation.project.jdbc")
 
 public class JPAConfig {
 
@@ -34,7 +34,7 @@ public class JPAConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan("com.dissertation.project.persist");
+        factoryBean.setPackagesToScan("com.dissertation.project.jdbc");
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);
         factoryBean.setJpaVendorAdapter(vendorAdapter);

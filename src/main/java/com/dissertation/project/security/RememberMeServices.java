@@ -2,7 +2,7 @@ package com.dissertation.project.security;
 
 import com.dissertation.project.jdbc.tokenDBMapping.TokenDao;
 import com.dissertation.project.jdbc.tokenDBMapping.Tokens;
-import com.dissertation.project.jdbc.usersDBMapping.UserDao;
+import com.dissertation.project.jdbc.usersDBMapping.UsersDao;
 import com.dissertation.project.jdbc.usersDBMapping.Users;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
@@ -59,7 +59,7 @@ public class RememberMeServices extends AbstractRememberMeServices {
     private TokenDao tokenRepo;
 
     @Autowired
-    private UserDao userRepo;
+    private UsersDao userRepo;
 
     @Autowired
     public RememberMeServices(Environment env, UserDetailsService userDetailsService) {

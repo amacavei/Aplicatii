@@ -1,9 +1,11 @@
 package com.dissertation.project.jdbc.usersDBMapping;
 
 import com.dissertation.project.jdbc.rolesDBMapping.Roles;
+import org.dozer.Mapping;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,36 +17,47 @@ public class Users {
     @Id
     @GenericGenerator(name = "generator", strategy = "increment")
     @GeneratedValue(generator = "generator")
+    @Mapping("id")
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Mapping("first_name")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
+    @Mapping("family_name")
     @Column(name = "family_name", nullable = false)
     private String familyName;
 
+    @Mapping("e_mail")
     @Column(name = "e_mail", nullable = false)
     private String email;
 
+    @Mapping("phone")
     @Column(name = "phone", nullable = false)
     private String phone;
 
+    @Mapping("language")
     @Column(name = "language", nullable = false)
     private String language;
 
+    @Mapping("id_picture")
     @Column(name = "id_picture")
     private String pictureId;
 
+    @Mapping("login")
     @Column(name = "login", nullable = false)
     private String login;
 
+    @Mapping("password")
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Mapping("birth_date")
     @Column(name = "birth_date")
     private Date birthDate;
 
+    @Mapping("enabled")
     @Column(name = "enabled")
     private Boolean enabled;
 
@@ -100,11 +113,11 @@ public class Users {
         this.birthDate = birthDate;
     }
 
-    public Set<Roles> getAuthorities() {
+    public Set<Roles> getRoles() {
         return roles;
     }
 
-    public void setAuthorities(Set<Roles> roles) {
+    public void setRoles(Set<Roles> roles) {
         this.roles = roles;
     }
 

@@ -6,19 +6,19 @@ import java.util.List;
 
 public interface RoleDao {
 
-    void setDataSource(DataSource ds);
+//    void setDataSource(DataSource ds);
 
-    void create(Roles role);
+//    void create(Roles role);
 
 //     List<Users> select(long id, String login);
 
 //     Object selectAll();
 
-    Roles getRole(long id);
+//    Roles getRole(long id);
 
-    List<Roles> listRoles();
+//    List<Roles> listRoles();
 
-    void delete(long id);
+//    void delete(long id);
 
-    void update(long id, String role);
+//    void update(long id, String role);
 }

@@ -1,6 +1,6 @@
 package com.dissertation.project.security;
 
-import com.dissertation.project.jdbc.usersDBMapping.UserDao;
+import com.dissertation.project.jdbc.usersDBMapping.UsersDao;
 import com.dissertation.project.jdbc.usersDBMapping.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -19,7 +19,7 @@ import java.io.IOException;
 public class RestAuthenticationSuccessHandler  extends SimpleUrlAuthenticationSuccessHandler {
 
     @Autowired
-    private UserDao userService;
+    private UsersDao userService;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,

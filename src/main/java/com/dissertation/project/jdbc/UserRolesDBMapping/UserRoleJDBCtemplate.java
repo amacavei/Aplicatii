@@ -21,43 +21,43 @@ public class UserRoleJDBCtemplate implements UserRoleDao {
         this.dataSource = dataSource;
     }
 
-    @Override
-    public void create(UserRoles userRole){
-
-        String sql = "Insert into USERS_ROLES(ID, ID_USER, ID_ROLE) VALUES (:id, :id_user, :id_role)";
-
-        Map parameters = new HashMap();
-        parameters.put("ID", userRole.getId());
-        parameters.put("ID_USER", userRole.getId_user());
-        parameters.put("ID_ROLE", userRole.getId_role());
-
-        this.namedParameterJdbcTemplate.update(sql, parameters);
-        System.out.println("----------UserRolesRecord---------");
-    }
-
-    @Override
-    public UserRoles getUserRole(long id){
-        String SQL = "SELECT * FROM USERS_ROLES WHERE id = :id";
-        SqlParameterSource namedParameters = new MapSqlParameterSource("id",Long.valueOf(id));
-        UserRoles useRole = namedParameterJdbcTemplate.queryForObject(SQL,namedParameters, (RowMapper<UserRoles>) new UserRoleRowMapper());
-        return useRole;
-    }
-
-    @Override
-    public List<UserRoles> listUserRoles(){
-        String SQL = "select * from USERS_ROLES";
-        List<UserRoles> userRoles = namedParameterJdbcTemplate.query(SQL, (RowMapper<UserRoles>) new UserRoleRowMapper());
-
-        return userRoles;
-    }
-
-    @Override
-    public void delete(long id){
-        String SQL = "delete from USERS_ROLES where id = :id";
-        SqlParameterSource namedParameters = new MapSqlParameterSource("id",Long.valueOf(id));
-        namedParameterJdbcTemplate.update(SQL,namedParameters);
-        System.out.println("Deleted role with id = " + id);
-    }
+//    @Override
+//    public void create(UserRoles userRole){
+//
+//        String sql = "Insert into USERS_ROLES(ID, ID_USER, ID_ROLE) VALUES (:id, :id_user, :id_role)";
+//
+//        Map parameters = new HashMap();
+//        parameters.put("ID", userRole.getId());
+//        parameters.put("ID_USER", userRole.getId_user());
+//        parameters.put("ID_ROLE", userRole.getId_role());
+//
+//        this.namedParameterJdbcTemplate.update(sql, parameters);
+//        System.out.println("----------UserRolesRecord---------");
+//    }
+//
+//    @Override
+//    public UserRoles getUserRole(long id){
+//        String SQL = "SELECT * FROM USERS_ROLES WHERE id = :id";
+//        SqlParameterSource namedParameters = new MapSqlParameterSource("id",Long.valueOf(id));
+//        UserRoles useRole = namedParameterJdbcTemplate.queryForObject(SQL,namedParameters, (RowMapper<UserRoles>) new UserRoleRowMapper());
+//        return useRole;
+//    }
+//
+//    @Override
+//    public List<UserRoles> listUserRoles(){
+//        String SQL = "select * from USERS_ROLES";
+//        List<UserRoles> userRoles = namedParameterJdbcTemplate.query(SQL, (RowMapper<UserRoles>) new UserRoleRowMapper());
+//
+//        return userRoles;
+//    }
+//
+//    @Override
+//    public void delete(long id){
+//        String SQL = "delete from USERS_ROLES where id = :id";
+//        SqlParameterSource namedParameters = new MapSqlParameterSource("id",Long.valueOf(id));
+//        namedParameterJdbcTemplate.update(SQL,namedParameters);
+//        System.out.println("Deleted role with id = " + id);
+//    }
 
 
 

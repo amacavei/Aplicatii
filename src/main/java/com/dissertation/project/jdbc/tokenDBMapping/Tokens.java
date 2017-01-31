@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name = "token")
 
-public class Tokens implements Serializable {
+public class Tokens {
 
     @Id
     private String series;

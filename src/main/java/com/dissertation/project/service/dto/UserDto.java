@@ -37,8 +37,8 @@ public class UserDto {
     @Mapping("birthDate")
     private Date birthDate;
 
-    @Mapping("authorities")
-    private Set<AuthorityDto> authorities = new HashSet<AuthorityDto>();
+    @Mapping("roles")
+    private Set<RoleDto> roles = new HashSet<RoleDto>();
 
     @Mapping("enabled")
     private Boolean enabled;
@@ -118,12 +118,12 @@ public class UserDto {
         this.language = language;
     }
 
-    public Set<AuthorityDto> getAuthorities() {
-        return authorities;
+    public Set<RoleDto> getRoles() {
+        return roles;
     }
 
-    public void setAuthorities(Set<AuthorityDto> authorities) {
-        this.authorities = authorities;
+    public void setRoles(Set<RoleDto> roles) {
+        this.roles = roles;
     }
 
     public Boolean getEnabled() {
@@ -142,13 +142,12 @@ public class UserDto {
         this.pictureId = pictureId;
     }
 
-    public String getAuthoritiesAsString() {
+    public String getRolesAsString() {
         StringBuffer sb = new StringBuffer();
-        for (AuthorityDto a : this.getAuthorities()) {
+        for (RoleDto a : this.getRoles()) {
             sb.append(a.getName());
             sb.append(", ");
         }
         return StringUtils.substring(sb.toString(), 0, sb.length() - 2);
     }
-
 }

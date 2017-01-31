@@ -10,7 +10,7 @@ angular
         this.lastName = data.familyName;
         this.email = data.email;
         this.userRoles = [];
-        angular.forEach(data.authorities, function (value, key) {
+        angular.forEach(data.roles, function (value, key) {
             this.push(value.name);
         }, this.userRoles);
     };

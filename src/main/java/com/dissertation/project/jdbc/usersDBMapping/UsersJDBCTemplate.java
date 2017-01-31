@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UserJDBCtemplate implements UserDao {
+public class UsersJDBCTemplate implements UsersDao {
 
 //    private DataSource dataSource;
 //
@@ -58,74 +58,73 @@ public class UserJDBCtemplate implements UserDao {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
 
-    public void setDataSource(DataSource dataSource){
-        this.dataSource = dataSource;
-    }
+//    public void setDataSource(DataSource dataSource){
+//        this.dataSource = dataSource;
+//    }
 
-    @Override
-    public void create(Users user){
+//    @Override
+//    public void create(Users user){
+//        String sql = "Insert into Users(ID, FIRST_NAME, FAMILY_NAME, E_MAIL, PHONE, LANGUAGE, ID_PICTURE, LOGIN, PASSWORD, BIRTH_DATE, ENABLED) VALUES (:id, :firstName , :familyName, :email, :phone, :language, :pictureId, :login, :password, :birthDate, :enabled)";
+//
+//        Map parameters = new HashMap();
+//        parameters.put("ID", user.getId());
+//        parameters.put("FIRST_NAME", user.getFirstName());
+//        parameters.put("FAMILY_NAME", user.getFamilyName());
+//        parameters.put("E_MAIL", user.getEmail());
+//        parameters.put("PHONE", user.getPhone());
+//        parameters.put("LANGUAGE", user.getLanguage());
+//        parameters.put("ID_PICTURE", user.getPictureId());
+//        parameters.put("LOGIN", user.getLogin());
+//        parameters.put("PASSWORD", user.getPassword());
+//        parameters.put("BIRTH_DATE", user.getBirthDate());
+//        parameters.put("ENABLED", user.getEnabled());
+//
+//        this.namedParameterJdbcTemplate.update(sql, parameters);
+//        System.out.println("----------UsersRecord---------");
+//    }
 
-        String sql = "Insert into Users(ID, FIRST_NAME, FAMILY_NAME, E_MAIL, PHONE, LANGUAGE, ID_PICTURE, LOGIN, PASSWORD, BIRTH_DATE, ENABLED) VALUES (:id, :firstName , :familyName, :email, :phone, :language, :pictureId, :login, :password, :birthDate, :enabled)";
+    //@Override
+//    public Users getUser(long id){
+//        String SQL = "SELECT * FROM USERS WHERE id = :id";
+//        SqlParameterSource namedParameters = new MapSqlParameterSource("id",Long.valueOf(id));
+//        Users users = namedParameterJdbcTemplate.queryForObject(SQL,namedParameters, (RowMapper<Users>) new UserRowMapper());
+//        return users;
+//    }
 
-        Map parameters = new HashMap();
-        parameters.put("ID", user.getId());
-        parameters.put("FIRST_NAME", user.getFirstName());
-        parameters.put("FAMILY_NAME", user.getFamilyName());
-        parameters.put("E_MAIL", user.getEmail());
-        parameters.put("PHONE", user.getPhone());
-        parameters.put("LANGUAGE", user.getLanguage());
-        parameters.put("ID_PICTURE", user.getPictureId());
-        parameters.put("LOGIN", user.getLogin());
-        parameters.put("PASSWORD", user.getPassword());
-        parameters.put("BIRTH_DATE", user.getBirthDate());
-        parameters.put("ENABLED", user.getEnabled());
+   // @Override
+//    public List<Users> listUsers(){
+//        String SQL = "select * from USERS";
+//        List<Users> users = namedParameterJdbcTemplate.query(SQL, (RowMapper<Users>) new UserRowMapper());
+//
+//        return users;
+//    }
 
-        this.namedParameterJdbcTemplate.update(sql, parameters);
-        System.out.println("----------UsersRecord---------");
-    }
-
-    @Override
-    public Users getUser(long id){
-        String SQL = "SELECT * FROM USERS WHERE id = :id";
-        SqlParameterSource namedParameters = new MapSqlParameterSource("id",Long.valueOf(id));
-        Users users = namedParameterJdbcTemplate.queryForObject(SQL,namedParameters, (RowMapper<Users>) new UserRowMapper());
-        return users;
-    }
-
-    @Override
-    public List<Users> listUsers(){
-        String SQL = "select * from USERS";
-        List<Users> users = namedParameterJdbcTemplate.query(SQL, (RowMapper<Users>) new UserRowMapper());
-
-        return users;
-    }
-
-    @Override
-    public void delete(long id){
-        String SQL = "delete from USERS where id = :id";
-        SqlParameterSource namedParameters = new MapSqlParameterSource("id",Long.valueOf(id));
-        namedParameterJdbcTemplate.update(SQL,namedParameters);
-        System.out.println("Deleted user with id = " + id);
-    }
+//    @Override
+//    public void delete(long id){
+//        String SQL = "delete from USERS where id = :id";
+//        SqlParameterSource namedParameters = new MapSqlParameterSource("id",Long.valueOf(id));
+//        namedParameterJdbcTemplate.update(SQL,namedParameters);
+//        System.out.println("Deleted user with id = " + id);
+//    }
 
 
-    @Override
-    public void update(long id, String login){
-        String SQL = "update Users set login = :login WHERE id = :id";
-        Map parameters = new HashMap();
-        parameters.put("id",id);
-        parameters.put("login",login);
-
-        SqlParameterSource namedParameters = new MapSqlParameterSource(parameters);
-        namedParameterJdbcTemplate.update(SQL,namedParameters);
-        System.out.println("Updated user with id = "+ id);
-    }
+//    @Override
+//    public void update(long id, String login){
+//        String SQL = "update Users set login = :login WHERE id = :id";
+//        Map parameters = new HashMap();
+//        parameters.put("id",id);
+//        parameters.put("login",login);
+//
+//        SqlParameterSource namedParameters = new MapSqlParameterSource(parameters);
+//        namedParameterJdbcTemplate.update(SQL,namedParameters);
+//        System.out.println("Updated user with id = "+ id);
+//    }
 
     @Override
     public Users findByLogin(String login){
         String SQL = "SELECT * FROM USERS WHERE LOGIN = :login";
-        SqlParameterSource namedParameters = new MapSqlParameterSource("id",String.valueOf(login));
-        Users users = namedParameterJdbcTemplate.queryForObject(SQL,namedParameters, (RowMapper<Users>) new UserRowMapper());
+        SqlParameterSource namedParameters = new MapSqlParameterSource("login",String.valueOf(login));
+        Users users = namedParameterJdbcTemplate.queryForObject(SQL,namedParameters, (RowMapper<Users>) new UsersRowMapper());
         return users;
     }
 

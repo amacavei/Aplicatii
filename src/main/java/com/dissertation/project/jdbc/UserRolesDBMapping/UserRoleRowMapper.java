@@ -1,6 +1,6 @@
 package com.dissertation.project.jdbc.UserRolesDBMapping;
 
-import com.dissertation.project.jdbc.usersDBMapping.UserResultSetExtractor;
+import com.dissertation.project.jdbc.usersDBMapping.UsersResultSetExtractor;
 
 import javax.swing.tree.RowMapper;
 import javax.swing.tree.TreePath;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class UserRoleRowMapper implements RowMapper {
 
     public Object mapRow(ResultSet rs, int line) throws SQLException {
-        UserResultSetExtractor extractor = new UserResultSetExtractor();
+        UsersResultSetExtractor extractor = new UsersResultSetExtractor();
         return extractor.extractData(rs);
     }
 

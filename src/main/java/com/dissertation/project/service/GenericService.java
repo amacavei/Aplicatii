@@ -1,15 +1,14 @@
 package com.dissertation.project.service;
 
 
-import java.io.Serializable;
 import java.util.List;
 
-public interface GenericService <T, D, ID extends Serializable>{
+public interface GenericService<E,K, I> {
 
-    D findOne(ID id);
-
-    List<D> findAll();
-
-    void save(D dto);
-
+    public void saveOrUpdate(E entity);
+    public List<E> getAll();
+    public E get(K id);
+    public void add(E entity);
+    public void update(E entity);
+    public void remove(E entity);
 }

@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserResultSetExtractor implements ResultSetExtractor {
+public class UsersResultSetExtractor implements ResultSetExtractor {
 
     @Override
     public Object extractData(ResultSet rs) throws SQLException {
