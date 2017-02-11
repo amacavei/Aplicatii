@@ -12,7 +12,11 @@ angular.module('Dissertation')
                     phone      : vm.phoneNumber,
                     email      : vm.email,
                     firstName  : vm.firstName,
-                    familyName : vm.familyName
+                    familyName : vm.familyName,
+                    language   : 'en',
+                    burthDate  : null,
+                    enabled    : true,
+                    pictureId  : null
                 };
 
                 createUserService.createUser(user);

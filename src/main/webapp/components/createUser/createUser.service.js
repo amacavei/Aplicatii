@@ -4,11 +4,11 @@
 angular.module("Dissertation")
     .factory('createUserService', ['$http','urlConstants', function($http,urlConstants){
         function createUser(user) {
+
+            var userJSON = JSON.stringify(user);
             var config = {
             };
-            $http.post(urlConstants.USERS, $.param({
-                user:user
-            }), config)
+            $http.post(urlConstants.USERS, userJSON, config)
                 .success(function (data) {
                     console.log('success', data);
                 })
