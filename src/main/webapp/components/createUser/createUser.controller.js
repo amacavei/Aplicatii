@@ -14,7 +14,7 @@ angular.module('Dissertation')
                     firstName  : vm.firstName,
                     familyName : vm.familyName,
                     language   : 'en',
-                    burthDate  : null,
+                    birthDate  : null,
                     enabled    : true,
                     pictureId  : null
                 };

@@ -12,6 +12,6 @@ public interface GenericService <T, D, ID extends Serializable>{
 
     void save(D dto);
 
-    void updateUser(D user, Long id);
+//    void updateUser(D user, Long id);
 
 }

@@ -50,3 +50,17 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
+
+.users form {
+  padding: 40px 10px 16px;
+}
+
+.users md-card md-card-title {
+  position: relative;
+}
+
+.users button .md-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

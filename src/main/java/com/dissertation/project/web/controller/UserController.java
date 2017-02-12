@@ -45,6 +45,7 @@ public class UserController {
             newUser.setEmail(user.getEmail());
             newUser.setFirstName(user.getFirstName());
             newUser.setPhone(user.getPhone());
+            newUser.setFamilyName(user.getFamilyName());
             userRepo.save(newUser);
             return newUser;
     }

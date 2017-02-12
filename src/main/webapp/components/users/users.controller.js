@@ -2,17 +2,37 @@
 
 angular
   .module('Dissertation')
-  .controller('UsersController',['$rootScope','$scope','$log','UsersService', function($rootScope, $scope, $log, UsersService){
-    $scope.users = UsersService.getAll();
-    $scope.currentRoles = $rootScope.account.userRoles;
+  .controller('UsersController',['$scope','$log','UsersService', '$timeout', function($scope, $log, UsersService, $timeout){
+      var vm = this;
+    vm.users = UsersService.getAll();
+    $scope.isInEditMode = false;
 
-    console.log($rootScope);
+    vm.editUser = function(user) {
+      var newUser = {
+          login      : user.login,
+          password   : user.password,
+          phone      : vm.phoneNumber,
+          email      : vm.email,
+          firstName  : vm.firstName,
+          familyName : vm.familyName,
+          language   : user.language,
+          birthDate  : user.birthDate,
+          enabled    : user.enabled,
+          pictureId  : user.pictureId
+      };
 
-    $scope.isAdmin = function() {
-      for(var i = 0; i < $scope.currentRoles.length; i++) {
-        if($scope.currentRoles[i] === 'admin') return true;
-      }
+      UsersService.editUser(newUser, user.id);
 
-      return false;
+        $timeout(function(){
+          vm.emptyForm();
+          vm.users = UsersService.getAll();
+        },1000);
+    }
+
+    vm.emptyForm = function(){
+      vm.phoneNumber = '';
+      vm.email = '';
+      vm.firstName = '';
+      vm.familyName = '';
     }
   }]);

@@ -12,15 +12,36 @@
           </md-input-container>
         </div>
         <div class="row">
-          <md-card class = "col-md-5" ng-repeat = "user in users | filter:query">
+          <md-card class = "col-md-5" ng-repeat = "user in vm.users | filter:query">
             <md-card-title>
               <md-card-title-text>
                 <span class="md-headline">{{user.firstName}} {{user.familyName}}</span>
                 <span class="md-subhead">{{user.email}}</span>
               </md-card-title-text>
-              <div class = "edit" ng-if = "isAdmin()">
+              <div class = "edit" ng-click = "isInEditMode = !isInEditMode">
               </div>
             </md-card-title>
+            <form autocomplete="false" ng-if="isInEditMode">
+              <md-input-container>
+                  <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">First Name</label>
+                  <input autocomplete="new-firstName" type = "text" ng-model = "vm.firstName"/>
+              </md-input-container>
+              <md-input-container>
+                  <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">Last Name</label>
+                  <input autocomplete="new-lastName" type = "text" ng-model = "vm.familyName"/>
+              </md-input-container>
+              <md-input-container>
+                  <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">Email</label>
+                  <input autocomplete="new-email" type = "email" ng-model = "vm.email"/>
+              </md-input-container>
+              <md-input-container>
+                  <label style = "width: 150px; padding-top: 3px; padding-left: 10px;">Phone Number</label>
+                  <input autocomplete="new-phoneNumber" type = "text" ng-model = "vm.phoneNumber"/>
+              </md-input-container>
+              <md-button class = "md-raised" ng-click = "vm.editUser(user)">
+                  Edit User
+              </md-button>
+            </form>
           </md-card>
         </div>
     </div>
