@@ -38,4 +38,14 @@ public class UserController {
         userRepo.save(user);
         return user;
     }
+
+    @RequestMapping(value = "/users/{userId}", method = RequestMethod.PUT)
+    public @ResponseBody User updateUser(@RequestBody User user, @PathVariable("userId") Long userId){//@PathVariable("userId") Long userId, @RequestBody String email, @RequestBody String firstName, @RequestBody String phone) {
+        User newUser = userRepo.findOne(userId);
+            newUser.setEmail(user.getEmail());
+            newUser.setFirstName(user.getFirstName());
+            newUser.setPhone(user.getPhone());
+            userRepo.save(newUser);
+            return newUser;
+    }
 }

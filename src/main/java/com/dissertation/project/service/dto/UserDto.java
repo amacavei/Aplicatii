@@ -3,6 +3,8 @@ package com.dissertation.project.service.dto;
 
 import org.apache.commons.lang3.StringUtils;
 import org.dozer.Mapping;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -13,29 +15,36 @@ public class UserDto {
     @Mapping("id")
     private Long id;
 
+    @NotEmpty
     @Mapping("firstName")
     private String firstName;
 
+    @NotEmpty
     @Mapping("familyName")
     private String familyName;
 
+    @NotEmpty
+    @Email
     @Mapping("email")
     private String email;
 
+    @NotEmpty
     @Mapping("phone")
     private String phone;
 
     @Mapping("language")
     private String language;
 
+    @NotEmpty
     @Mapping("login")
     private String login;
 
+    @NotEmpty
     @Mapping("password")
     private String password;
 
-    @Mapping("burthDate")
-    private Date burthDate;
+    @Mapping("birthDate")
+    private Date birthDate;
 
     @Mapping("authorities")
     private Set<AuthorityDto> authorities = new HashSet<AuthorityDto>();
@@ -86,12 +95,12 @@ public class UserDto {
         this.password = password;
     }
 
-    public Date getBurthDate() {
-        return burthDate;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setBurthDate(Date burthDate) {
-        this.burthDate = burthDate;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getEmail() {

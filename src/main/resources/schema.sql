@@ -12,7 +12,7 @@ language char(2),
 id_picture int,
 login varchar(50) NOT NULL UNIQUE,
 password varchar(50),
-burth_date Date,
+birth_date Date,
 enabled boolean);
 
 create table users_authority (
