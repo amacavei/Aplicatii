@@ -1,52 +1,55 @@
 package com.dissertation.project.web.controller;
 
-import com.dissertation.project.persist.entity.User;
-import com.dissertation.project.persist.repo.UserRepo;
+import com.dissertation.project.model.User;
+import com.dissertation.project.dao.UserDao;
+import com.dissertation.project.service.RoleService;
+import com.dissertation.project.service.UserService;
 import io.swagger.annotations.Api;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@Api(description = "users management API")
+@Controller
+@RequestMapping("/")
 
 public class UserController {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
-    private UserRepo userRepo;
+    private UserService userService;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public @ResponseBody
-    List<User> userList(){
+    List userList(){
         logger.debug("get users list");
-        return userRepo.findAll();
+        return userService.findAll();
     }
 
     @RequestMapping(value = "/users/{userId}", method = RequestMethod.GET)
-    public @ResponseBody User getUser(@PathVariable Long userId){
+    public @ResponseBody User getUser(@PathVariable String userId){
         logger.debug("get user");
-        return userRepo.findOne(userId);
+        return userService.findById(userId);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public @ResponseBody User saveUser(@RequestBody User user){
         logger.debug("save user");
-        userRepo.save(user);
+        userService.create(user);
         return user;
     }
 
     @RequestMapping(value = "/users/{userId}", method = RequestMethod.PUT)
-    public @ResponseBody User updateUser(@RequestBody User user, @PathVariable("userId") Long userId){//@PathVariable("userId") Long userId, @RequestBody String email, @RequestBody String firstName, @RequestBody String phone) {
-        User newUser = userRepo.findOne(userId);
+    public @ResponseBody User updateUser(@RequestBody User user, @PathVariable("userId") String userId){//@PathVariable("userId") Long userId, @RequestBody String email, @RequestBody String firstName, @RequestBody String phone) {
+        User newUser = userService.findById(userId);
             newUser.setEmail(user.getEmail());
             newUser.setFirstName(user.getFirstName());
             newUser.setPhone(user.getPhone());
             newUser.setFamilyName(user.getFamilyName());
-            userRepo.save(newUser);
+            userService.update(newUser);
             return newUser;
     }
 }

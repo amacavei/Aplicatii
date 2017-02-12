@@ -1,8 +1,8 @@
 package com.dissertation.project.security;
 
-import com.dissertation.project.persist.entity.Authority;
-import com.dissertation.project.persist.entity.User;
-import com.dissertation.project.persist.repo.UserRepo;
+import com.dissertation.project.model.Role;
+import com.dissertation.project.model.User;
+import com.dissertation.project.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +26,14 @@ public class UserDetailsService implements org.springframework.security.core.use
     private final Logger log = LoggerFactory.getLogger(UserDetailsService.class);
 
     @Autowired
-    private UserRepo userRepo;
+    private UserService userService;
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(final String login) {
         log.debug("Authenticating {}", login);
 
-        User user = userRepo.findByLogin(login);
+        User user = userService.findByLogin(login);
         if (user == null) {
             throw new UsernameNotFoundException("User " + login + " was not found in the database");
         } else if (!user.getEnabled()) {
@@ -41,8 +41,8 @@ public class UserDetailsService implements org.springframework.security.core.use
         }
 
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-        for (Authority authority : user.getAuthorities()) {
-            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getName());
+        for (Role role : user.getRoles()) {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getName());
             grantedAuthorities.add(grantedAuthority);
         }
 

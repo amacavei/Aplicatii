@@ -1,9 +1,9 @@
 package com.dissertation.project.security;
 
-import com.dissertation.project.persist.entity.Token;
-import com.dissertation.project.persist.entity.User;
-import com.dissertation.project.persist.repo.TokenRepo;
-import com.dissertation.project.persist.repo.UserRepo;
+import com.dissertation.project.model.Token;
+import com.dissertation.project.model.User;
+import com.dissertation.project.dao.TokenRepo;
+import com.dissertation.project.dao.UserDao;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,7 +59,7 @@ public class RememberMeServices extends AbstractRememberMeServices {
     private TokenRepo tokenRepo;
 
     @Autowired
-    private UserRepo userRepo;
+    private UserDao userDao;
 
     @Autowired
     public RememberMeServices(Environment env, UserDetailsService userDetailsService) {
@@ -95,7 +95,7 @@ public class RememberMeServices extends AbstractRememberMeServices {
         String login = successfulAuthentication.getName();
 
         log.debug("Creating new persistent login for user {}", login);
-        User user = userRepo.findByLogin(login);
+        User user = userDao.findByLogin(login);
         Token token = new Token();
         token.setSeries(generateSeriesData());
         token.setUserLogin(user.getLogin());
