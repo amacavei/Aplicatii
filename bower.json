@@ -15,5 +15,8 @@
   },
   "resolutions": {
     "angular": "1.4.12"
+  },
+  "devDependencies": {
+    "less": "^2.7.2"
   }
 }
