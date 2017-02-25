@@ -1,6 +1,11 @@
 .createUser {
-  background-color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: white;
   overflow: auto;
   margin-bottom: 30px;
   position: absolute;
@@ -8,7 +13,10 @@
 }
 .createUser.center-content {
   top: 0;
-  transform: translateX(-50%) translateY(0%);
+  -webkit-transform: translate(-50%, 0%);
+  -moz-transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+  -o-transform: translate(-50%, 0%);
 }
 .createUser .container .row:last-child {
   padding-bottom: 60px;
@@ -18,29 +26,43 @@
   margin: 18px 0 8px 30px;
 }
 .createUser md-input-container input {
+  width: 300px;
+  height: 20px;
   position: relative;
   margin-left: 100px;
-  height: 20px;
   top: 6px;
-  width: 300px;
   padding: 2px 60px 1px;
 }
 .createUser form md-input-container label {
+  width: 100px;
+  height: 29px;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   position: absolute;
   top: 0.5px;
-  color: white;
   left: 30px;
+  color: white;
   background-color: #F08080;
-  width: 100px;
-  height: 30px;
-  border-radius: 16px 0 0 16px;
 }
 .createUser form md-input-container .arrow {
   width: 0;
-  position: absolute;
-  left: 142px;
-  top: 6.5px;
   height: 0;
+  position: absolute;
+  top: 6.5px;
+  left: 142px;
   border-top: 11.2px solid transparent;
   z-index: 100;
   border-left: 15px solid #F08080;
@@ -49,6 +71,9 @@
 .createUser md-input-container.md-input-focused .md-input {
   border-color: #F08080;
   -webkit-transition: border-color ease-in-out 0.5s;
+  -moz-transition: border-color ease-in-out 0.5s;
+  -ms-transition: border-color ease-in-out 0.5s;
+  -o-transition: border-color ease-in-out 0.5s;
 }
 .createUser md-input-container.md-input-focused label {
   color: white;
@@ -56,9 +81,13 @@
 .createUser md-input-container .md-placeholder,
 md-input-container label:not(.md-no-float):not(.md-container-ignore) {
   -webkit-transform: translate3d(0, 6px, 0) scale(0.75);
-  transform: translate3d(0, 6px, 0) scale(0.75);
+  -moz-transform: translate3d(0, 6px, 0) scale(0.75);
+  -ms-transform: translate3d(0, 6px, 0) scale(0.75);
+  -o-transform: translate3d(0, 6px, 0) scale(0.75);
   -webkit-transition: none;
-  transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
   max-width: 100%;
 }
 .createUser button.md-button {

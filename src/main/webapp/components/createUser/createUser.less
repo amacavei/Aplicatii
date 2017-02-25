@@ -1,12 +1,7 @@
 @import (reference) "../commons/main";
 
 .createUser {
-  .border-radius(4px);
-  background-color: @color_base_white;
-  overflow: auto;
-  margin-bottom: 30px;
-  position: absolute;
-  top: 0;
+  .pageContent();
 }
 
 .createUser.center-content {
@@ -32,20 +27,16 @@
 }
 
 .createUser form md-input-container label {
-  .size(100px 30px);
-  .border-radiuses(16px 0 0 16px);
-  position: absolute;
-  top: 0.5px;
+  .size(100px 29px);
+  .border-radiuses();
+  .positionTopLeft(0.5px, 30px);
   color: @color_base_white;
-  left: 30px;
   background-color: @color_base_pink;
 }
 
 .createUser form md-input-container .arrow {
   .size(0);
-  position: absolute;
-  left: 142px;
-  top: 6.5px;
+  .positionTopLeft(6.5px, 142px);
   border-top: 11.2px solid transparent;
   z-index: 100;
   border-left: 15px solid @color_base_pink;

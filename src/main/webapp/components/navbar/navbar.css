@@ -21,14 +21,17 @@ md-nav-bar md-nav-ink-bar {
   width: 65px;
 }
 .brand:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   font-family: FontAwesome;
   font-size: 30px;
   content: "\f19d";
   color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 md-nav-bar md-menu {
   margin-left: auto;

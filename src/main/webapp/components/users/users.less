@@ -1,12 +1,7 @@
 @import (reference) "../commons/main";
 
 .users {
-  .border-radius(4px);
-  background-color: @color_base_white;
-  overflow: auto;
-  margin-bottom: 30px;
-  position: absolute;
-  top: 0;
+  .pageContent();
 }
 
 .users.center-content {
@@ -41,14 +36,12 @@ md-input-container label:not(.md-no-float):not(.md-container-ignore) {
 }
 
 .edit:after {
+  .positionTopRight(50%, 15px);
+  .transform(translateY(-50%));
   font-family: FontAwesome;
   font-size: 20px;
   content: "\f040";
   color: @color_base_pink;
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
   cursor: pointer;
 }
 

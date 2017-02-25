@@ -1,10 +1,7 @@
 @import (reference) "../commons/main";
 
 .error {
-  .border-radius(4px);
-  background-color: @color_base_white;
-  margin-bottom: 30px;
-  position: absolute;
+  .pageContent();
 }
 
 .error.col-md-7 {
@@ -12,15 +9,13 @@
 }
 
 .error .container .row:first-child {
-  .border-radiuses(4px 4px 0 0);
+  .border-radiuses(4px, 4px);
   background-color: @color_base_error;
   color: @color_base_white;
 }
 
 .error button {
-  position: absolute;
-  top: 60px;
-  right: 0;
+  .positionTopRight(60px);
 }
 
 .error .container .row:last-child {

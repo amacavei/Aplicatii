@@ -28,14 +28,12 @@ md-nav-bar md-nav-ink-bar {
 }
 
 .brand:after {
+  .positionTopLeft(50%, 50%);
+  .transform(translate(-50%, -50%));
   font-family: FontAwesome;
   font-size: 30px;
   content: "\f19d";
   color: @color_base_white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 md-nav-bar md-menu {

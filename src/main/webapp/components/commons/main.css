@@ -1,19 +1,23 @@
 /* Color set */
 /* end Color set */
-/* Mixins */
-/* end Mixins */
+/* Default Mixins */
+/* end Default Mixins */
+/* App Mixins */
+/* end App Mixins */
 body,
 html {
   font-size: 18px;
   background-color: #DCDCDC;
 }
 .fade {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 100%;
-  opacity: 1;
 }
 .fade.ng-enter,
 .fade.ng-leave {
@@ -24,15 +28,23 @@ html {
   transition: all 1s ease;
 }
 .fade.ng-enter {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
   opacity: 0;
 }
 .fade.ng-enter-active {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
   opacity: 1;
 }
 .fade.ng-leave {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
   opacity: 1;
 }
 .fade.ng-leave-active {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
   opacity: 0;
 }
 .center-content {

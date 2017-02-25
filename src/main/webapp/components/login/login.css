@@ -1,6 +1,11 @@
 .login {
-  background-color: white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: white;
 }
 .login .container {
   max-width: 600px;
@@ -11,8 +16,22 @@
   padding-right: 30px;
 }
 .login .container .row:first-child {
+  -webkit-border-top-right-radius: 4px 4px 0 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 4px 4px 0 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 4px 4px 0 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   background-color: #F08080;
-  border-radius: 4px 4px 0 0;
   color: white;
 }
 md-input-container {
@@ -22,6 +41,9 @@ md-input-container {
 .login md-input-container.md-input-focused .md-input {
   border-color: #F08080;
   -webkit-transition: border-color ease-in-out 0.5s;
+  -moz-transition: border-color ease-in-out 0.5s;
+  -ms-transition: border-color ease-in-out 0.5s;
+  -o-transition: border-color ease-in-out 0.5s;
 }
 .login md-input-container.md-input-focused label {
   color: #F08080;
@@ -31,6 +53,9 @@ md-checkbox.md-checked .md-icon {
 }
 md-checkbox .md-icon {
   -webkit-transition: linear 0.5s;
+  -moz-transition: linear 0.5s;
+  -ms-transition: linear 0.5s;
+  -o-transition: linear 0.5s;
 }
 .login button.md-button {
   display: block;
@@ -48,8 +73,14 @@ md-checkbox .md-icon {
   position: relative;
   top: 15px;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
 .login.center-content {
-  transform: translateX(-50%) translateY(50%);
+  -webkit-transform: translate(-50%, 50%);
+  -moz-transform: translate(-50%, 50%);
+  -ms-transform: translate(-50%, 50%);
+  -o-transform: translate(-50%, 50%);
 }

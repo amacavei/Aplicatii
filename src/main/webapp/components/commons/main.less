@@ -7,7 +7,7 @@
 @color_base_background: #DCDCDC;
 @color_base_shadows: rgba(0, 0, 0, 0.25);
 /* end Color set */
-/* Mixins */
+/* Default Mixins */
 .center() {
   position: absolute;
   top: 50%;
@@ -77,16 +77,41 @@
   background-clip: padding-box;
 }
 
-.size(@size) {
+.size(@size) when (default()) {
   width: @size;
   height: @size;
 }
 
 .size(@size) when (length(@size) = 2) {
   width: extract(@size, 1);
-  height: extract(@size, 1);
+  height: extract(@size, 2);
 }
-/* end Mixins */
+
+.positionTop(@top) {
+  position: absolute;
+  top: @top;
+}
+
+.positionTopLeft(@top; @left:0) {
+  .positionTop(@top);
+  left: @left;
+}
+
+.positionTopRight(@top; @right:0) {
+  .positionTop(@top);
+  right: @right;
+}
+/* end Default Mixins */
+/* App Mixins */
+.pageContent() {
+  .border-radius(4px);
+  background-color: @color_base_white;
+  overflow: auto;
+  margin-bottom: 30px;
+  position: absolute;
+  top: 0;
+}
+/* end App Mixins */
 body,
 html {
   font-size: 18px;
@@ -94,12 +119,12 @@ html {
 }
 
 .fade {
+  .opacity(1);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 100%;
-  opacity: 1;
 }
 
 .fade.ng-enter,
@@ -108,19 +133,19 @@ html {
 }
 
 .fade.ng-enter {
-  opacity: 0;
+  .opacity(0);
 }
 
 .fade.ng-enter-active {
-  opacity: 1;
+  .opacity(1);
 }
 
 .fade.ng-leave {
-  opacity: 1;
+  .opacity(1);
 }
 
 .fade.ng-leave-active {
-  opacity: 0;
+  .opacity(0);
 }
 
 .center-content {
