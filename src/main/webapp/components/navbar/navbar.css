@@ -2,6 +2,7 @@ md-nav-bar .md-nav-bar {
   background-color: #F08080;
   margin-bottom: 20px;
   padding-left: 15px;
+  position: relative;
 }
 md-nav-bar .md-button._md-nav-button.md-unselected {
   color: #595453;

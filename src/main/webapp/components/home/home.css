@@ -9,10 +9,9 @@
   overflow: auto;
   margin-bottom: 30px;
   position: absolute;
-  top: 0;
+  top: 75px;
 }
 .home.center-content {
-  top: 0;
   -webkit-transform: translate(-50%, 0%);
   -moz-transform: translate(-50%, 0%);
   -ms-transform: translate(-50%, 0%);
