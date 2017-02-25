@@ -1,5 +1,12 @@
 *.iml
 src/main/webapp/vendor
+src/main/webapp/components/commons/main.css
+src/main/webapp/components/createUser/createUser.css
+src/main/webapp/components/error/error.css
+src/main/webapp/components/home/home.css
+src/main/webapp/components/login/login.css
+src/main/webapp/components/navbar/navbar.css
+src/main/webapp/components/users/users.css
 node_modules
 bower_components
 node
