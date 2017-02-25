@@ -1,6 +1,5 @@
 package com.dissertation.project.config;
 
-
 import org.springframework.security.web.authentication.RememberMeServices;
 import com.dissertation.project.security.RestUnauthorizedEntryPoint;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,6 +19,8 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -37,6 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
+
+    @Autowired
+    DataSource dataSource;
 
     @Autowired
     private RestUnauthorizedEntryPoint restAuthenticationEntryPoint;
