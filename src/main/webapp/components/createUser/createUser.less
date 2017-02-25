@@ -1,5 +1,7 @@
+@import (reference) "../commons/main";
+
 .createUser {
-  background-color: white;
+  background-color: @color_base_white;
   border-radius: 4px;
   overflow: auto;
   margin-bottom: 30px;
@@ -33,9 +35,9 @@
 .createUser form md-input-container label {
   position: absolute;
   top: 0.5px;
-  color: white;
+  color: @color_base_white;
   left: 30px;
-  background-color: #F08080;
+  background-color: @color_base_pink;
   width: 100px;
   height: 30px;
   border-radius: 16px 0 0 16px;
@@ -49,17 +51,17 @@
   height: 0;
   border-top: 11.2px solid transparent;
   z-index: 100;
-  border-left: 15px solid #F08080;
+  border-left: 15px solid @color_base_pink;
   border-bottom: 11.2px solid transparent;
 }
 
 .createUser md-input-container.md-input-focused .md-input {
-  border-color: #F08080;
+  border-color: @color_base_pink;
   -webkit-transition: border-color ease-in-out 0.5s;
 }
 
 .createUser md-input-container.md-input-focused label {
-  color: white;
+  color: @color_base_white;
 }
 
 .createUser md-input-container .md-placeholder,
@@ -73,8 +75,8 @@ md-input-container label:not(.md-no-float):not(.md-container-ignore) {
 
 .createUser button.md-button {
   display: block;
-  background-color: #F08080;
-  color: white;
+  background-color: @color_base_pink;
+  color: @color_base_white;
   position: relative;
   width: 375px;
   top: 30px;
@@ -82,7 +84,7 @@ md-input-container label:not(.md-no-float):not(.md-container-ignore) {
 }
 
 .createUser button.md-button.md-raised:hover {
-  background-color: #90EE90;
+  background-color: @color_button_light_green;
 }
 @media (min-width: 1200px) {
   .createUser .container {

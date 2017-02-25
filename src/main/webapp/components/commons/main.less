@@ -1,6 +1,16 @@
-html, body {
+/* Color set */
+@color_base_pink: #F08080;
+@color_base_error: #f44336;
+@color_button_light_green: #90EE90;
+@color_button_unselected: #595453;
+@color_base_white: white;
+@color_base_background: #DCDCDC;
+@color_base_shadows: rgba(0, 0, 0, 0.25);
+
+body,
+html {
   font-size: 18px;
-  background-color: #DCDCDC;
+  background-color: @color_base_background;
 }
 
 .fade {
@@ -12,7 +22,8 @@ html, body {
   opacity: 1;
 }
 
-.fade.ng-enter, .fade.ng-leave {
+.fade.ng-enter,
+.fade.ng-leave {
   -webkit-transition: all 1s ease;
   transition: all 0.5s ease;
 }
@@ -41,7 +52,7 @@ html, body {
 }
 
 .shadows {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px @color_base_shadows, 0 10px 10px @color_base_shadows;
 }
 
 .align-vertical-center {
@@ -53,12 +64,12 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #ddd;
+  background-color: @color_base_background;
   min-width: 100%;
   height: 100%;
   display: table;
 }
 
-three-bounce-spinner .three-bounce-spinner>div {
-  background-color: #F08080;
+three-bounce-spinner .three-bounce-spinner > div {
+  background-color: @color_base_pink;
 }

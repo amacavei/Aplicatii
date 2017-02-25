@@ -6,8 +6,8 @@ md-nav-bar .md-nav-bar {
 md-nav-bar .md-button._md-nav-button.md-unselected {
   color: #595453;
 }
-.md-button.md-default-theme.md-accent,
-.md-button.md-accent {
+.md-button.md-accent,
+.md-button.md-default-theme.md-accent {
   color: white;
 }
 md-nav-bar md-nav-ink-bar {

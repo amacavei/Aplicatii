@@ -1,5 +1,7 @@
+@import (reference) "../commons/main";
+
 .login {
-  background-color: white;
+  background-color: @color_base_white;
   border-radius: 4px;
 }
 
@@ -14,27 +16,27 @@
 }
 
 .login .container .row:first-child {
-  background-color: #F08080;
+  background-color: @color_base_pink;
   border-radius: 4px 4px 0 0;
-  color: white;
+  color: @color_base_white;
 }
 
 md-input-container {
   width: 100%;
-  color: #F08080;
+  color: @color_base_pink;
 }
 
 .login md-input-container.md-input-focused .md-input {
-  border-color: #F08080;
+  border-color: @color_base_pink;
   -webkit-transition: border-color ease-in-out 0.5s;
 }
 
 .login md-input-container.md-input-focused label {
-  color: #F08080;
+  color: @color_base_pink;
 }
 
 md-checkbox.md-checked .md-icon {
-  background-color: #F08080;
+  background-color: @color_base_pink;
 }
 
 md-checkbox .md-icon {
@@ -43,14 +45,14 @@ md-checkbox .md-icon {
 
 .login button.md-button {
   display: block;
-  background-color: #F08080;
-  color: white;
+  background-color: @color_base_pink;
+  color: @color_base_white;
   width: 200px;
   position: relative;
 }
 
 .login button.md-button.md-raised:hover {
-  background-color: #90EE90;
+  background-color: @color_button_light_green;
 }
 
 .login md-icon {

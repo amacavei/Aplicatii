@@ -1,34 +1,36 @@
-.error{
-  background-color: white;
+@import (reference) "../commons/main";
+
+.error {
+  background-color: @color_base_white;
   border-radius: 4px;
   margin-bottom: 30px;
   position: absolute;
 }
 
-.error.col-md-7{
+.error.col-md-7 {
   padding: 0;
 }
 
-.error .container .row:first-child{
-  background-color: #f44336;
-  color: white;
+.error .container .row:first-child {
+  background-color: @color_base_error;
+  color: @color_base_white;
   border-radius: 4px 4px 0 0;
 }
 
-.error button{
+.error button {
   position: absolute;
   top: 60px;
   right: 0;
 }
 
-.error .container .row:last-child{
+.error .container .row:last-child {
   padding-bottom: 30px;
 }
 
-.error .container{
-  width:100%;
+.error .container {
+  width: 100%;
 }
 
-.error.center-content{
+.error.center-content {
   transform: translateX(-50%) translateY(50%);
 }
