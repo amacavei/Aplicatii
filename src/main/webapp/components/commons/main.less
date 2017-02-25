@@ -6,7 +6,87 @@
 @color_base_white: white;
 @color_base_background: #DCDCDC;
 @color_base_shadows: rgba(0, 0, 0, 0.25);
+/* end Color set */
+/* Mixins */
+.center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
 
+.transitionEase(@duration) {
+  -webkit-transition: all @duration ease;
+  -moz-transition: all @duration ease;
+  -ms-transition: all @duration ease;
+  -o-transition: all @duration ease;
+  transition: all @duration ease;
+}
+
+.translate (@x, @y:0) {
+  -webkit-transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+}
+
+.transition (@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
+}
+
+.transform(@string) {
+  -webkit-transform: @string;
+  -moz-transform: @string;
+  -ms-transform: @string;
+  -o-transform: @string;
+}
+
+.opacity (@opacity:0.5) {
+  -webkit-opacity: @opacity;
+  -moz-opacity: @opacity;
+  opacity: @opacity;
+}
+
+.border-radius (@radius:5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.border-radiuses (@topright:0, @bottomleft: 0, @bottomright: 0, @topleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.size(@size) {
+  width: @size;
+  height: @size;
+}
+
+.size(@size) when (length(@size) = 2) {
+  width: extract(@size, 1);
+  height: extract(@size, 1);
+}
+/* end Mixins */
 body,
 html {
   font-size: 18px;
@@ -24,8 +104,7 @@ html {
 
 .fade.ng-enter,
 .fade.ng-leave {
-  -webkit-transition: all 1s ease;
-  transition: all 0.5s ease;
+  .transitionEase(1s);
 }
 
 .fade.ng-enter {
@@ -45,10 +124,7 @@ html {
 }
 
 .center-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  .center();
 }
 
 .shadows {

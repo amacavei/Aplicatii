@@ -1,8 +1,8 @@
 @import (reference) "../commons/main";
 
 .login {
+  .border-radius(4px);
   background-color: @color_base_white;
-  border-radius: 4px;
 }
 
 .login .container {
@@ -16,8 +16,8 @@
 }
 
 .login .container .row:first-child {
+  .border-radiuses(4px 4px 0 0);
   background-color: @color_base_pink;
-  border-radius: 4px 4px 0 0;
   color: @color_base_white;
 }
 
@@ -28,7 +28,7 @@ md-input-container {
 
 .login md-input-container.md-input-focused .md-input {
   border-color: @color_base_pink;
-  -webkit-transition: border-color ease-in-out 0.5s;
+  .transition(border-color ease-in-out 0.5s);
 }
 
 .login md-input-container.md-input-focused label {
@@ -40,7 +40,7 @@ md-checkbox.md-checked .md-icon {
 }
 
 md-checkbox .md-icon {
-  -webkit-transition: linear 0.5s;
+  .transition(linear 0.5s);
 }
 
 .login button.md-button {
@@ -56,14 +56,13 @@ md-checkbox .md-icon {
 }
 
 .login md-icon {
-  width: 60px;
-  height: 60px;
+  .size(60px);
   position: relative;
   top: 15px;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  .translate(-50%, -50%);
 }
 
 .login.center-content {
-  transform: translateX(-50%) translateY(50%);
+  .translate(-50%, 50%);
 }

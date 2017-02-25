@@ -1,8 +1,8 @@
 @import (reference) "../commons/main";
 
 .home {
+  .border-radius(4px);
   background-color: @color_base_white;
-  border-radius: 4px;
   overflow: auto;
   margin-bottom: 30px;
   position: absolute;
@@ -11,7 +11,7 @@
 
 .home.center-content {
   top: 0;
-  transform: translateX(-50%) translateY(-0%);
+  .translate(-50%, -0%);
 }
 
 .description {
@@ -20,8 +20,7 @@
 }
 
 .md-card-image {
-  width: 40px;
-  height: 40px;
+  .size(40px);
 }
 
 .home .container .row:last-child {

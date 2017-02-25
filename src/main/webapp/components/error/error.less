@@ -1,8 +1,8 @@
 @import (reference) "../commons/main";
 
 .error {
+  .border-radius(4px);
   background-color: @color_base_white;
-  border-radius: 4px;
   margin-bottom: 30px;
   position: absolute;
 }
@@ -12,9 +12,9 @@
 }
 
 .error .container .row:first-child {
+  .border-radiuses(4px 4px 0 0);
   background-color: @color_base_error;
   color: @color_base_white;
-  border-radius: 4px 4px 0 0;
 }
 
 .error button {
@@ -32,5 +32,5 @@
 }
 
 .error.center-content {
-  transform: translateX(-50%) translateY(50%);
+  .translate(-50%, -50%);
 }
