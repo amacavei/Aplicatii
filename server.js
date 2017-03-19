@@ -37,7 +37,7 @@ REST.prototype.configureExpress = function(connection) {
   app.use('/app.js', express.static(__dirname + '/webapp/app.js'));
   app.use('/constants.js', express.static(__dirname + '/webapp/constants.js'));
 
-  app.all('/*', function(req, res, next) {
+  app.all('/', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('/webapp/index.html', {
       root: __dirname
@@ -55,9 +55,6 @@ REST.prototype.configureExpress = function(connection) {
 }
 
 REST.prototype.startServer = function() {
-  app.get('*', function(req, res) {
-    res.sendFile(__dirname + '/webapp/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-  });
   app.listen(3000, function() {
     console.log("All right ! I am alive at Port 3000.");
   });

@@ -8,7 +8,7 @@ function REST_ROUTER(router, connection, md5) {
 REST_ROUTER.prototype.handleRoutes = function(router, connection, md5) {
   router.get("/users", function(req, res) {
     var query;
-    if(req.params){
+    if (req.params) {
       query = "SELECT * FROM USERS WHERE login=" + req.username + "AND password=" + req.password;
     }
     query = "SELECT * FROM ??";
