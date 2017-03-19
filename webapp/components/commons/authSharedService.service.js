@@ -11,10 +11,9 @@ angular
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         };
-        $http.post(urlConstants.AUTHENTICATE, $.param({
+        $http.get(urlConstants.USERS, $.param({
             username: userName,
-            password: password,
-            rememberme: rememberMe
+            password: password
           }), config)
           .success(function(data, status, headers, config) {
             authService.loginConfirmed(data);

@@ -7,7 +7,11 @@ function REST_ROUTER(router, connection, md5) {
 
 REST_ROUTER.prototype.handleRoutes = function(router, connection, md5) {
   router.get("/users", function(req, res) {
-    var query = "SELECT * FROM ??";
+    var query;
+    if(req.params){
+      query = "SELECT * FROM USERS WHERE login=" + req.username + "AND password=" + req.password;
+    }
+    query = "SELECT * FROM ??";
     var table = ["users"];
     query = mysql.format(query, table);
     connection.query(query, function(err, rows) {
