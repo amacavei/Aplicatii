@@ -8,9 +8,9 @@ function REST_ROUTER(router, connection, md5) {
 REST_ROUTER.prototype.handleRoutes = function(router, connection, md5) {
   router.post("/users", function(req, res) {
     var query;
-    console.log(req.query);
-    if (req.query.username && req.query.password) {
-      query = "SELECT * FROM USERS WHERE login=" + req.username + "AND password=" + req.password;
+    console.log(req.body);
+    if (req.body.username && req.body.password) {
+      query = "SELECT * FROM USERS WHERE login='" + req.body.username + "' AND password='" + req.body.password + "'";
     } else {
       query = "SELECT * FROM ??";
     }

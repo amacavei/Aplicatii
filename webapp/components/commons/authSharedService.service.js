@@ -16,7 +16,14 @@ angular
           username: userName,
           password: password
         }
-        $http.post(urlConstants.USERS, data, config)
+        $http({
+            method: 'POST',
+            url: urlConstants.USERS,
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            data: data
+          })
           .success(function(data, status, headers, config) {
             authService.loginConfirmed(data);
           })
