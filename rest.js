@@ -6,12 +6,15 @@ function REST_ROUTER(router, connection, md5) {
 }
 
 REST_ROUTER.prototype.handleRoutes = function(router, connection, md5) {
-  router.get("/users", function(req, res) {
+  router.post("/users", function(req, res) {
     var query;
-    if (req.params) {
+    console.log(req.query);
+    if (req.query.username && req.query.password) {
       query = "SELECT * FROM USERS WHERE login=" + req.username + "AND password=" + req.password;
+    } else {
+      query = "SELECT * FROM ??";
     }
-    query = "SELECT * FROM ??";
+    console.log(query);
     var table = ["users"];
     query = mysql.format(query, table);
     connection.query(query, function(err, rows) {

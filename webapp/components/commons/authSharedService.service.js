@@ -11,10 +11,12 @@ angular
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         };
-        $http.get(urlConstants.USERS, $.param({
-            username: userName,
-            password: password
-          }), config)
+
+        var data = {
+          username: userName,
+          password: password
+        }
+        $http.post(urlConstants.USERS, data, config)
           .success(function(data, status, headers, config) {
             authService.loginConfirmed(data);
           })
