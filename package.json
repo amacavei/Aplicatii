@@ -1,7 +1,16 @@
 {
-  "name": "Dessertation",
+  "name": "RESTful-API",
   "version": "0.0.1",
+  "scripts": {
+    "start": "node Server.js",
+    "prebuild": "npm install",
+    "build": "grunt"
+  },
   "dependencies": {
+    "express": "~4.12.2",
+    "mysql": "~2.5.5",
+    "body-parser": "~1.12.0",
+    "MD5": "~1.2.1",
     "bower": "~1.3.12",
     "gulp": "^3.9.0",
     "gulp-clone": "1.0.0",
@@ -30,10 +39,6 @@
       "traceur": "github:jmcriffey/bower-traceur@0.0.88",
       "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88"
     }
-  },
-  "scripts": {
-    "prebuild": "npm install",
-    "build": "grunt"
   },
   "devDependencies": {
     "gulp-less": "^3.3.0"

@@ -23,7 +23,7 @@ var vendorCss1, vendorCss2, vendorCss3, vendorCss4;
 
 
 options = {
-  html: ['src/main/webapp//**/*.html'],
+  html: ['webapp//**/*.html'],
 
   ignore: [
     '.show',
@@ -57,7 +57,7 @@ options = {
 //});
 
 gulp.task('clean', function() {
-  return gulp.src('src/main/webapp/vendor', {
+  return gulp.src('webapp/vendor', {
       read: false
     })
     .pipe(rimraf());
@@ -71,25 +71,25 @@ gulp.task('lib-js-files', function() {
       title: 'lib-js-files :'
     }))
     .pipe(concatVendor('lib.min.js'))
-    .pipe(gulp.dest('src/main/webapp/vendor/js'));
+    .pipe(gulp.dest('webapp/vendor/js'));
 
   vendorJs.pipe(clone())
     .pipe(gzip())
-    .pipe(gulp.dest('src/main/webapp/vendor/js'));
+    .pipe(gulp.dest('webapp/vendor/js'));
 });
 
 gulp.task('compile-less', function() {
-  return gulp.src(['src/main/webapp/**/*.less', '!src/main/webapp/font-awesome-4.7.0/**/*.less'])
+  return gulp.src(['webapp/**/*.less', '!webapp/font-awesome-4.7.0/**/*.less'])
     .pipe(less({
       paths: [path.join(__dirname, 'less', 'includes')]
     }))
-    .pipe(gulp.dest('./src/main/webapp'));
+    .pipe(gulp.dest('webapp'));
 });
 
 gulp.task('watch-less', function() {
-    watchLess('src/main/webapp/**/*.less', function(){
-      gulp.start('compile-less');
-    })
+  watchLess('src/main/webapp/**/*.less', function() {
+    gulp.start('compile-less');
+  })
 });
 
 gulp.task('boot-css-files', function() {
@@ -98,7 +98,7 @@ gulp.task('boot-css-files', function() {
     .pipe(debug({
       title: 'boot-css-files :'
     }))
-    .pipe(gulp.dest('src/main/webapp/vendor/css'));
+    .pipe(gulp.dest('webapp/vendor/css'));
 });
 
 gulp.task('material-css-files', function() {
@@ -107,7 +107,7 @@ gulp.task('material-css-files', function() {
     .pipe(debug({
       title: 'material-css-files :'
     }))
-    .pipe(gulp.dest('src/main/webapp/vendor/css'));
+    .pipe(gulp.dest('webapp/vendor/css'));
 
 });
 
@@ -118,26 +118,26 @@ gulp.task('spinkit-css-files', function() {
     .pipe(debug({
       title: 'spinkit-css-files :'
     }))
-    .pipe(gulp.dest('src/main/webapp/vendor/css'));
+    .pipe(gulp.dest('webapp/vendor/css'));
 });
 
 gulp.task('font-css-files', function() {
-  vendorCss4 = gulp.src('src/main/webapp/font-awesome-4.7.0/css/font-awesome.min.css')
+  vendorCss4 = gulp.src('webapp/font-awesome-4.7.0/css/font-awesome.min.css')
 
     .pipe(debug({
       title: 'font-css-files :'
     }))
-    .pipe(gulp.dest('src/main/webapp/vendor/css'));
+    .pipe(gulp.dest('webapp/vendor/css'));
 });
 
 
 gulp.task('index', function() {
-  var target = gulp.src("src/main/webapp/index.html");
-  var jsSources = gulp.src(['src/main/webapp//**/*.js'], {
+  var target = gulp.src("webapp/index.html");
+  var jsSources = gulp.src(['webapp//**/*.js'], {
       read: false
     })
     .pipe(order(["**/security.js", "**/app.js"]));
-  var cssSources = gulp.src(['src/main/webapp/components//**/*.css'], {
+  var cssSources = gulp.src(['webapp/components//**/*.css'], {
     read: false
   });
 
@@ -145,20 +145,20 @@ gulp.task('index', function() {
   return target.pipe(inject(series(vendorJs, vendorCss1, vendorCss2, vendorCss3, vendorCss4, jsSources, cssSources), {
       relative: true
     }))
-    .pipe(gulp.dest('src/main/webapp'));
+    .pipe(gulp.dest('webapp'));
 });
 
 
 gulp.task('copyFonts', function() {
   gulp.src('bower_components/**/fonts/*.{ttf,woff,woff2,eof,svg}')
     .pipe(flatten())
-    .pipe(gulp.dest('src/main/webapp/vendor/fonts'));
+    .pipe(gulp.dest('webapp/vendor/fonts'));
 });
 
 gulp.task('copyFontAwesome', function() {
-  gulp.src('src/main/webapp/font-awesome-4.7.0/fonts/*.{ttf,woff,woff2,eof,svg}')
+  gulp.src('webapp/font-awesome-4.7.0/fonts/*.{ttf,woff,woff2,eof,svg}')
     .pipe(flatten())
-    .pipe(gulp.dest('src/main/webapp/vendor/fonts'));
+    .pipe(gulp.dest('webapp/vendor/fonts'));
 });
 
 
