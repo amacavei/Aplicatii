@@ -2,13 +2,17 @@
 
 angular
   .module('Dissertation')
-  .service('UsersService', ['$http', '$log', '$resource', 'urlConstants', function ($http, $log, $resource,urlConstants) {
+  .service('UsersService', ['$http', '$log', '$resource', 'urlConstants','$q', function ($http, $log, $resource,urlConstants, $q) {
     return {
         getAll: function () {
-            var userResource = $resource(urlConstants.USERS, {}, {
-                query: {method: 'GET', params: {}, isArray: true}
-            });
-            return userResource.query();
+            var deferred = $q.defer();
+           $http.post(urlConstants.USERS).success(function(data){
+               deferred.resolve(data);
+           })
+               .error(function(err){
+                   deferred.reject(err);
+               });
+            return deferred.promise;
         },
 
         editUser: function(user, id) {

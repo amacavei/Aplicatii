@@ -1,6 +1,3 @@
-/**
- * Created by Andrei on 1/28/2017.
- */
 angular.module('Dissertation')
     .controller('createUserController', ['$scope', 'createUserService', function($scope,createUserService) {
             var vm = this;
@@ -10,13 +7,14 @@ angular.module('Dissertation')
                     login      : vm.login,
                     password   : vm.password,
                     phone      : vm.phoneNumber,
-                    email      : vm.email,
-                    firstName  : vm.firstName,
-                    familyName : vm.familyName,
+                    e_mail      : vm.email,
+                    first_name  : vm.firstName,
+                    family_name : vm.familyName,
                     language   : 'en',
                     birthDate  : null,
                     enabled    : true,
-                    pictureId  : null
+                    pictureId  : null,
+                    isAdmin    : true
                 };
 
                 createUserService.createUser(user);

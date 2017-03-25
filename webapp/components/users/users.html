@@ -15,8 +15,8 @@
           <md-card class = "col-md-5" ng-repeat = "user in vm.users | filter:query">
             <md-card-title>
               <md-card-title-text>
-                <span class="md-headline">{{user.firstName}} {{user.familyName}}</span>
-                <span class="md-subhead">{{user.email}}</span>
+                <span class="md-headline">{{user.first_name}} {{user.family_name}}</span>
+                <span class="md-subhead">{{user.e_mail}}</span>
               </md-card-title-text>
               <div class = "edit" ng-click = "isInEditMode = !isInEditMode">
               </div>

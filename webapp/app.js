@@ -23,7 +23,7 @@ angular
                   url:'/otherwise',
                   access: {
                     loginRequired: true,
-                    authorizedRoles: [USER_ROLES.all]
+                    authorizedRoles: false
                   }
                 })
                 .state('home', {
@@ -32,7 +32,7 @@ angular
                   controller:'HomeController',
                   access: {
                     loginRequired: true,
-                    authorizedRoles: [USER_ROLES.all]
+                    authorizedRoles: false
                   }
                 })
                 .state('default',{
@@ -46,7 +46,7 @@ angular
                   controllerAs:'vm',
                   access: {
                     loginRequired: true,
-                    authorizedRoles: [USER_ROLES.admin]
+                    authorizedRoles: true
                   }
                 })
                 .state('createUser',{
@@ -56,7 +56,7 @@ angular
                   controllerAs:'vm',
                   access: {
                     loginRequired: true,
-                    authorizedRoles: [USER_ROLES.all]
+                    authorizedRoles: false
                   }
                 })
                 .state('loading',{
@@ -64,7 +64,7 @@ angular
                   templateUrl:'components/loading/loading.html',
                   access: {
                     loginRequired: false,
-                    authorizedRoles: [USER_ROLES.all]
+                    authorizedRoles: false
                   }
                 })
                 .state('logout',{
@@ -74,7 +74,7 @@ angular
                   controllerAs:'vm',
                   access: {
                     loginRequired: false,
-                    authorizedRoles: [USER_ROLES.all]
+                    authorizedRoles: false
                   }
                 })
                 .state('login',{
@@ -84,7 +84,7 @@ angular
                   controllerAs: 'vm',
                   access: {
                     loginRequired: false,
-                    authorizedRoles: [USER_ROLES.all]
+                    authorizedRoles: false
                   }
                 })
                 .state('errorCode',{
@@ -94,7 +94,7 @@ angular
                   controllerAs: 'vm',
                   access: {
                     loginRequired: false,
-                    authorizedRoles: [USER_ROLES.all]
+                    authorizedRoles: false
                   }
                 })
   }])
@@ -167,8 +167,5 @@ angular
     $rootScope.$on('event:auth-loginCancelled', function () {
         $state.go('login');
     });
-
-    // Get already authenticated user account
-    AuthSharedService.getAccount();
 
   }]);

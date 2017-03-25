@@ -4,7 +4,9 @@ angular
   .module('Dissertation')
   .controller('UsersController',['$scope','$log','UsersService', '$timeout', function($scope, $log, UsersService, $timeout){
       var vm = this;
-    vm.users = UsersService.getAll();
+     UsersService.getAll().then(function(data){
+        vm.users = data.Users;
+    });
     $scope.isInEditMode = false;
 
     vm.editUser = function(user) {
@@ -12,22 +14,25 @@ angular
           login      : user.login,
           password   : user.password,
           phone      : vm.phoneNumber,
-          email      : vm.email,
-          firstName  : vm.firstName,
-          familyName : vm.familyName,
+          e_mail      : vm.email,
+          first_name  : vm.firstName,
+          family_name : vm.familyName,
           language   : user.language,
           birthDate  : user.birthDate,
           enabled    : user.enabled,
-          pictureId  : user.pictureId
+          pictureId  : user.pictureId,
+          isAdmin    : user.isAdmin
       };
 
       UsersService.editUser(newUser, user.id);
 
         $timeout(function(){
           vm.emptyForm();
-          vm.users = UsersService.getAll();
+            UsersService.getAll().then(function(data){
+                vm.users = data.Users;
+            });
         },1000);
-    }
+    };
 
     vm.emptyForm = function(){
       vm.phoneNumber = '';

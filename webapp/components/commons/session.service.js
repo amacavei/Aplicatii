@@ -6,13 +6,10 @@ angular
     this.create = function (data) {
         this.id = data.id;
         this.login = data.login;
-        this.firstName = data.firstName;
-        this.lastName = data.familyName;
-        this.email = data.email;
-        this.userRoles = [];
-        angular.forEach(data.authorities, function (value, key) {
-            this.push(value.name);
-        }, this.userRoles);
+        this.firstName = data.first_name;
+        this.lastName = data.family_name;
+        this.email = data.e_mail;
+        this.isAdmin = data.isAdmin;
     };
     this.invalidate = function () {
         this.id = null;
@@ -20,7 +17,7 @@ angular
         this.firstName = null;
         this.lastName = null;
         this.email = null;
-        this.userRoles = null;
+        this.isAdmin = null;
     };
     return this;
 });
